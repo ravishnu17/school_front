@@ -1,0 +1,10 @@
+table{
+    text-align: center;
+    background-color: white;
+}
+td{
+    border: 3px solid aliceblue;
+}
+input:hover{
+    background-color: aliceblue;
+}

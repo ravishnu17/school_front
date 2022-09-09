@@ -1,0 +1,573 @@
+<div style="padding:50px ;">
+    <div class="card" style="padding:25px ;">
+        <form [formGroup]="formData">
+            <h4 style="text-align:center ;">Project School </h4>
+            <div *ngIf="step == 0">
+                <div class="row">
+                    <div class="col-4">
+                        <form [formGroup]="changeForm">
+                            <div class="card">
+                                <h5 style="text-align:center ;" class="card-header">Change Role </h5>
+                                <div class="card-body">
+                                    <div class="col">
+                                        <label for="">Enter User Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                            <input class="form-control" placeholder="Enter user name"
+                                                formControlName="username" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col mt-3">
+                                        <label for="">Enter Role PIN</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-stream"></i></span>
+                                            <input class="form-control" placeholder="Enter pin" type="password"
+                                                formControlName="role">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="input-group">
+                                        <button class="btn btn-success" (click)="change()">Change</button>
+                                        <!-- <button class="btn btn-primary" (click)="next()">Next</button> -->
+                                        <button class="btn btn-info " (click)="exit()">Home</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">Other Features</div>
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <button>Users List</button>{{data}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div *ngIf="step==1">
+                <div class="card mt-4">
+                    <div class="card-header">General Information-1</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <div class="row">
+                                <div class="col-md-4 mt-2">
+                                    <label for="name">Name of the Institution</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fas fa-school"></i></span>
+                                        <input class="form-control " formControlName="name"
+                                            placeholder="Name of the Institution" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="post">Postal Address </label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        <input class="form-control " formControlName="post"
+                                            placeholder="Enter Postal Address" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="district">District</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        <input class="form-control " formControlName="district"
+                                            placeholder="Enter the district" type="text" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="state">State</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        <input class="form-control " formControlName="state"
+                                            placeholder="Enter the state" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="ctv">City/Town/Villege</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        <input class="form-control " formControlName="ctv"
+                                            placeholder="Enter city/town/villege" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="pincode">Pincode</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        <input class="form-control " formControlName="pincode"
+                                            placeholder="Enter the Pincode" type="text" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="url">URL Name</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-link"></i></span>
+                                        <input class="form-control " formControlName="url" placeholder="Enter the URL"
+                                            type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="mail">Official Email ID</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-at"></i></span>
+                                        <input class="form-control " formControlName="mail"
+                                            placeholder="Enter official Email id" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="mobile">Official Phone Number</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                        <input class="form-control " formControlName="mobile"
+                                            placeholder="Enter official Phone Number" type="text" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="type">School Location</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                        <select formControlName="type" class="form-select form-select">
+                                            <option value=0 selected>-- select school location type --</option>
+                                            <option value="urban">Urban</option>
+                                            <option value="Semi-Urban">Semi-Urban</option>
+                                            <option value="Rural">Rural</option>
+                                            <option value="Tribal">Tribal</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="needs">Does your school admit children with special needs? </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                        <select formControlName="needs" class="form-select form-select">
+                                            <option selected>-- select --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="academic">Academic Year </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                        <select formControlName="academic" class="form-select form-select">
+                                            <option selected>-- select academic year--</option>
+                                            <option value="2022-2023">2022-2023</option>
+                                            <option value="2021-2022">2021-2022</option>
+                                            <option value="2020-2021">2020-2021</option>
+                                            <option value="2019-2020">2019-2020</option>
+                                            <option value="2018-2019">2018-2019</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer mt-5">
+                        <button class="btn btn-primary" (click)="next()">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="step==2">
+                <div class="card mt-4" id="gi2">
+                    <div class="card-header">General Information-2</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <div class="row">
+                                <div class="col-md-4 mt-2">
+                                    <label for="establish">Year of Establishment</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                        <input class="form-control " formControlName="establish"
+                                            placeholder="Enter year of establishment" type="date" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="level">School Level </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                        <select formControlName="level" class="form-select form-select">
+                                            <option selected>-- select school level --</option>
+                                            <option value="Foundation(PreKG to II)">Foundation(PreKG to II)</option>
+                                            <option value="Preparatory(std III to std V)">Preparatory(std III to std V)
+                                            </option>
+                                            <option value="Middle(VI to VIII)">Middle(VI to VIII)</option>
+                                            <option value="Secondary(IX to XII)">Secondary(IX to XII)</option>
+                                            <option value="Higher Secondary(vi - x)">Higher Secondary(vi - x)</option>
+                                            <option value="Little flower School(Vi - X)">Little flower School(Vi - X)
+                                            </option>
+                                            <option value="Primary X">Primary X</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="medium">Medium</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-language"></i></span>
+                                        <select formControlName="medium" class="form-select form-select">
+                                            <option selected>-- select medium --</option>
+                                            <option value="Tamil">Tamil</option>
+                                            <option value="English">English</option>
+                                            <option value="kannada">kannada/option>
+                                            <option value="Malayalam">Malayalam</option>
+                                            <option value="Telugu">Telugu</option>
+                                            <option value="Hindi">Hindi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="affiliation">Nature of Affiliation</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-clipboard-list"></i></span>
+                                        <select formControlName="affiliation" class="form-select form-select">
+                                            <option value="Private Aided" selected>Private Aided</option>
+                                            <option value="Private unaided">Private unaided</option>
+                                            <option value="Government">Government</option>
+                                            <option value="Private Partially-Aided">Private Partially-Aided</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="t_staff">Total No.of Teaching Staff</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-poll"></i></span>
+                                        <input class="form-control " formControlName="t_staff"
+                                            placeholder="Enter Total No.of teaching staff" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="gender">Gender</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                                        <select formControlName="gender" class="form-select form-select">
+                                            <option value=0 selected>-- Select Gender --</option>
+                                            <option value="Boys">Boys</option>
+                                            <option value="Girls">Girls</option>
+                                            <option value="Co-Educational">Co-Educational</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="girl">Current No.of Girls (total)</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-poll"></i></span>
+                                        <input class="form-control " formControlName="girl"
+                                            placeholder="Enter Total number of girls" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="boys">Current No.of Boys (total)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-poll"></i></span>
+                                        <input class="form-control " formControlName="boys"
+                                            placeholder="Enter ototal number of boys" type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="total">Current No.of student (total)</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-poll"></i></span>
+                                        <input class="form-control " formControlName="total"
+                                            placeholder="Enter Total no.of student" type="text" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="n_staff">Total No.of Non-Teaching-staff</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-poll"></i></span>
+                                        <input type="text" class="form-control" formControlName="n_staff"
+                                            placeholder="Enter Total number of Non-teaching staff" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="correspondent_name">Name of the correspondent</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" formControlName="correspondent_name"
+                                            placeholder="Enter correspondent Name" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="correspondent_mobile">correspondent Mobile Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-mobile"></i></span>
+                                        <input type="text" class="form-control" formControlName="correspondent_mobile"
+                                            placeholder="Enter correspondent Mobile Number" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="correspondent_mail">correspondent Email ID</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-envelope-open"></i></span>
+                                        <input type="text" class="form-control" formControlName="correspondent_mail"
+                                            placeholder="Enter correspondent Email ID" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="principal_name">Name of the principal / Headmaster</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                        <input type="text" class="form-control" formControlName="principal_name"
+                                            placeholder="Enter principal/Headmaster name" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="principal_mail">Principal / Headmaster Email ID</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-envelope-open"></i></span>
+                                        <input type="text" class="form-control" formControlName="principal_mail"
+                                            placeholder="Enter principal/Headmaster Email ID" required="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 mt-3">
+                                        <label for="principal_office_mobile">Principal / Headmaster Office mobile
+                                            number</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                            <input type="text" class="form-control"
+                                                formControlName="principal_office_mobile"
+                                                placeholder="Enter principal/Headmaster Office Mobile Number"
+                                                required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <label for="principal_mobile">Principal / Headmaster Mobile Number</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fa fa-mobile"></i></span>
+                                            <input type="text" class="form-control" formControlName="principal_mobile"
+                                                placeholder="Enter principal/Headmaster Mobile Number" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer mt-5">
+                        <button class="btn btn-primary" (click)="previous()">Previous</button>
+                        <button class="btn btn-primary" (click)="next()" style="margin-left:25px;">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="step==3">
+                <div class="card mt-4">
+                    <div class="card-header">Recognition & Affiliation</div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <div class="row">
+                                <div class="col-md-4 mt-2">
+                                    <label for="recognized">Is the Institution duly recognized by the Government
+                                        ?</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fas fa-list"></i></span>
+                                        <select class="form-select form-select" formControlName="recognized"
+                                            id="recognized" name="recognized">
+                                            <option value="null" selected>-- Select --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="board_name">name of the Board Affiliated with</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                        <select formControlName="board_name" class="form-select form-select">
+                                            <option selected>-- select --</option>
+                                            <option value="State Board">State Board</option>
+                                            <option value="matriculation">matriculation</option>
+                                            <option value="CBSE">CBSE</option>
+                                            <option value="ICSE">ICSE</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="affilicate_number">Affiliation Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-list"></i></span>
+                                        <input class="form-control" type="text" formControlName="affiliate_number"
+                                            placeholder="Enter Affiliation Numbers" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="affiliate_year">Year of Affiliation</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
+                                        <input class="form-control" type="date" formControlName="affiliate_year"
+                                            placeholder="Enter Year of Affiliation" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="affiliate_type">Is the Affiliation Permanent or temporary ?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-poll"></i></span>
+                                        <select formControlName="affiliate_type" class="form-select form-select">
+                                            <option selected>-- Select Affiliation --</option>
+                                            <option value="Permanent">Permanent</option>
+                                            <option value="Temporary">Temporary</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="affilicate_state">State the condition for Affiliation</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-edit"></i></span>
+                                        <input class="form-control " formControlName="affiliate_state"
+                                            placeholder="Enter the condition for Affiliation " type="text" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="fire">Is School secured Fire Safety certificate ?</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-check-circle"></i></span>
+                                        <select formControlName="fire" class="form-select form-select">
+                                            <option>-- select --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="sanitation">Is School secured Sanitation certificate ?</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-check-circle"></i></span>
+                                        <select formControlName="sanitation" class="form-select form-select">
+                                            <option selected>-- select --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="building">Is School secured Building safety certificate ?</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-check-circle"></i></span>
+                                        <select formControlName="building" class="form-select form-select">
+                                            <option selected>-- select --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="minority">Have you obtain minority status certificate ?</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-check-circle"></i></span>
+                                        <select formControlName="minority" class="form-select form-select">
+                                            <option selected>-- select --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="own">School owned by</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="fa fa-award"></i></span>
+                                        <select formControlName="own" class="form-select form-select">
+                                            <option selected>-- select --</option>
+                                            <option value="Government">Government</option>
+                                            <option value="Individual">Individual</option>
+                                            <option value="Trust">Trust</option>
+                                            <option value="Society">Society</option>
+                                            <option value="Company">Company</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="trust_name">Name of the Trust \ Society \ Company</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-university"></i></span>
+                                        <input type="text" class="form-control" formControlName="trust_name"
+                                            placeholder="Enter the name of Trust \ Society\ Company" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <label for="trust_register">Is the Trust / Society / Company Registered ?</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-check-circle"></i></span>
+                                        <select formControlName="trust_register" class="form-select form-select">
+                                            <option selected>-- select --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="register_year">Year of Registration</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
+                                        <input type="date" class="form-control" formControlName="register_year"
+                                            placeholder="Enter the year of Registration" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="register_no">Registration Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa fa-arrow-right"></i></span>
+                                        <input type="text" class="form-control" formControlName="register_no"
+                                            placeholder="Enter Registration Number" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-4 mt-3">
+                                    <label for="register_validity">Period of validity of Registration</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                        <input type="text" class="form-control" formControlName="register_validity"
+                                            placeholder="Enter Period of validity of Registration" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="user_id">Enter Admin Id</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                        <input type="text" class="form-control" formControlName="user_id"
+                                            placeholder="Enter User id" required="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer mt-5">
+                        <button class="btn btn-primary" (click)="previous()">Previous</button>
+                        <button class="btn btn-primary" type="submit" style="margin-left:25px;"
+                            (click)="submit()">Submit</button>
+                    </div>
+                </div>
+            </div> -->
+        </form>
+    </div>
+</div>

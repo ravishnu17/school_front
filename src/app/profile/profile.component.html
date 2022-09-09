@@ -1,0 +1,100 @@
+<div class="content">
+    <div class="container-fluid ">
+        <div class="row mt-4">
+            <div class="col-3"></div>
+            <div class="col-md-5 bg-white" style="text-align: center;">
+                <img src="../assets/Media/dbstar_logo.png" width="200" alt="DBSTAR"><br>
+                <label class="container" style="font-size:25px ;color:blue;background-color:powderblue;">Profile</label>
+                <form [formGroup]="profileForm">
+                    <div *ngIf="step !=1">
+                        <div class="input-group mt-3 ">
+                            <span class="input-group-text"><i class="bi-person-circle"></i></span>
+                            <input class="form-control " formControlName="name" placeholder="Full Name" type="text"
+                                required="">
+                            <span class="input-group-text" style="margin-left: 10px;"><i
+                                    class="bi-calendar-event"></i></span>
+                            <input class="form-control " formControlName="dob" placeholder="Date of Birth" type="date"
+                                required="">
+                        </div>
+                        <div class="input-group-text mt-3 ">
+                            <span class="input-group-text"><i class="bi-gender-ambiguous"></i></span>
+                            <div class="form-check form-check-inline" style="margin-left:12px;">
+                                <input class="form-check-input" type="radio" formControlName="gender" id="male"
+                                    value="male" required="">
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" formControlName="gender" id="female"
+                                    value="female" required="">
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group mt-3">
+                            <span class="input-group-text"><i class="bi-phone-fill"></i></span>
+                            <input class="form-control " formControlName="mobile" placeholder="Mobile number"
+                                type="text" required="">
+                        </div>
+
+                        <div class="input-group mt-3">
+                            <span class="input-group-text"><i class="bi-envelope-fill"></i></span>
+                            <input class="form-control " formControlName="email" placeholder="Email" type="mail"
+                                required="">
+                        </div>
+
+                        <div class="input-group mt-3" style="margin-top: 25px;">
+                            <span class="input-group-text"><i class="bi-person"></i></span>
+                            <input class="form-control " formControlName="username" placeholder="Username" type="text"
+                                required="">
+                        </div>
+
+                        <div class="input-group mt-3">
+                            <span class="input-group-text"><i class="bi-cursor-fill"></i></span>
+                            <input class="form-control " formControlName="district" placeholder="District" type="text"
+                                required="">
+                        </div>
+                        <div class="input-group mt-3">
+                            <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                            <input class="form-control " value="{{role}}" type="text" readonly>
+                        </div>
+
+                        <button (click)="submit()" class="btn btn-success mt-3 mb-3" [disabled]="profileForm.untouched"
+                            style="margin-right:20px ;">Save</button>
+                        <button type="button" class="btn btn-success mt-3 mb-3" (click)="change()">change Password </button>
+                        <button type="button" class="btn btn-danger mt-3 mb-3" (click)="remove()" style="margin-left:20px ;">Delete my Account</button>
+                    </div>
+                    <div *ngIf="step == 1" class="row mt-3">
+                        <div class="card-header" style="text-align:center ;">Change Password</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div *ngIf="status == 1" class="alert alert-success">Successfully changed</div>
+                                <div *ngIf="status == 0" class="alert alert-danger">Password doesn't match with record
+                                </div>
+                                <div *ngIf="status == 2" class="alert alert-danger">Password Should be same </div>
+
+                                <div class="col-2"></div>
+                                <div class="col-4 mt-2">
+                                    <label for="">Enter Old Password</label>
+                                    <div class="input-group ">
+                                        <input class="form-control " formControlName="oldPwd" placeholder="Old password"
+                                            type="text" required="">
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-2 mb-3">
+                                    <label for="">Enter New Password</label>
+                                    <div class="input-group ">
+                                        <input class="form-control " formControlName="newPwd" placeholder="New Password"
+                                            type="text" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-success" (click)='update()'
+                                style="margin-right:20px ;">Submit</button>
+                            <button class="btn btn-secondary" (click)="previous()">Back</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
