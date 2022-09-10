@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
     
     this.loginForm = this.fb.group({
-      username: [''],
+      username: ['',Validators.required],
       password: [''],
       pin:[],
       pwd:[]
@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit {
   submit() {
 
     if (this.loginForm.invalid) {
-      alert("Field should not be Empty")
+      this.error="Enter your data";
     }
     else {
         // const login = JSON.parse(JSON.stringify(this.loginForm.value))
@@ -108,7 +108,7 @@ export class LoginComponent implements OnInit {
             title:"Login successfully",
             showConfirmButton:false,
             icon:'success',
-            timer:1200
+            timer:1000
           });
           this.route.navigate(['/main']);
           }

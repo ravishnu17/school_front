@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubserviceService } from '../subservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
 
@@ -14,7 +14,6 @@ export class ProfileComponent implements OnInit {
 
   data :any;
   profileForm! :FormGroup;
-  type: any;
   role!: string;
   step!:number;
   pwd :any;
@@ -24,8 +23,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     
-    // this.id = this.actRoute.snapshot.params["id"];
-    // this.type = this.actRoute.snapshot.params["type"];
     if(localStorage.getItem('token')==null){
       Swal.fire("Closed","Your Session is ended. Login Again!",'info');
       this.route.navigate(['']);
@@ -33,19 +30,14 @@ export class ProfileComponent implements OnInit {
 
 
     this.subService.get('/profile').subscribe(arg =>{
-      this.data=arg
-      console.log(this.data);
-      this.type = this.data.role;
+      this.profileForm.patchValue(arg)
 
-      if(this.data.role == 0){
+      if(arg.role == 0){
         this.role = "User";
       }
-      else if (this.data.role == 1){
+      else if (arg.role == 1){
         this.role ="Admin"
       }
-      
-      this.loadData();
-      
     },error =>{
       this.route.navigate(['/'])
     });
@@ -59,27 +51,17 @@ export class ProfileComponent implements OnInit {
       username:[''],
       district:[''],
       oldPwd:[''],
-      newPwd:['']
+      newPwd:['',Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]
     });
 
   }
   
-  loadData(){  
-    this.profileForm=this.fb.group({
-    name:[this.data.name],
-    dob:[this.data.dob],      
-    gender:[this.data.gender],
-    mobile:[this.data.mobile],
-    email:[this.data.email],
-    username:[this.data.username],
-    district:[this.data.district],
-    oldPwd:[''],
-      newPwd:['']
-    })
-  }
-
   submit(){
-    this.subService.post(this.profileForm.value , '/profileUpdate').subscribe(arg =>{
+    if(this.profileForm.invalid){
+      
+    }
+    else{
+      this.subService.post(this.profileForm.value , '/profileUpdate').subscribe(arg =>{
         this.data=arg;
         if(this.data.msg != null){
           Swal.fire("",this.data.msg,"warning");
@@ -91,7 +73,10 @@ export class ProfileComponent implements OnInit {
             icon:'success'
           });
         }
-    })
+      });
+
+    }
+   
     
   }
 
@@ -99,13 +84,15 @@ export class ProfileComponent implements OnInit {
     this.step=1;
   }
   update(){
-    console.log(this.profileForm.value);
-
-    this.subService.post(this.profileForm.value , '/pwd').subscribe(arg=>{
-      this.pwd = arg;
-      console.log(this.pwd);
-      this.status = this.pwd.status ; 
-    });
+    if(this.profileForm.invalid){
+      alert("FIll the missing");
+    }
+    else{
+      this.subService.post(this.profileForm.value , '/pwd').subscribe(arg=>{
+        this.pwd = arg;
+        this.status = this.pwd.status ; 
+      });
+    }
   }
   remove(){
     Swal.fire({
@@ -134,10 +121,5 @@ export class ProfileComponent implements OnInit {
   previous(){
     this.step-=1;
   }
-  showProfile(path:any){
-    if (path ==''){
-      localStorage.clear();  
-    }
-    this.route.navigate([path])
-  }
+  
 }

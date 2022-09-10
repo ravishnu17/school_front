@@ -5,10 +5,10 @@
             <div class="col-md-3 bg-white">
                 <img class="mt-5" src="../assets/Media/login_side_img.png" alt="DBSTAR">
               </div>
-            <div class="col-md-4  bg-white" style="text-align: center;">
+            <div class="col-md-4  bg-white" >
 
                 <img src="../assets/Media/dbstar_logo.png" width="200" alt="DBSTAR">
-                <h4 style="font-family:'Times New Roman', Times, serif ;font-weight:bold;color:blue">User Registration</h4>
+                <h4 style="font-family:'Times New Roman', Times, serif ;font-weight:bold;color:blue;text-align: center;">User Registration</h4>
                 <div *ngIf="error!=null" class="alert alert-danger">{{error}}</div>
                 <div class="row">
                     <div class="col">
@@ -36,11 +36,12 @@
                     <div class="col">
                         <div class="input-group mt-3">
                             <span class="input-group-text"><i class="bi-phone-fill"></i></span>
-                            <input class="form-control " formControlName="mobile" placeholder="mobile number" type="text" required>
+                            <input class="form-control " id="mobile" formControlName="mobile" placeholder="mobile number" type="text" required>
                         </div>
                         <div *ngIf="registerForm.controls['mobile'].invalid && registerForm.controls['mobile'].touched" class="text text-danger">
-                            Mobile field is required
+                           Enter valid Mobile Number
                         </div>
+                        <!-- <div *ngIf="registerForm.controls['mobile'].errors ?.['minlength']">Enter valid mobile number</div> -->
                     </div>
                     <div class="col">
                         <div class="input-group mt-3">
@@ -86,20 +87,21 @@
                     <input class="form-control " formControlName="password" placeholder="password" type="password" required="">
                 </div>
                 <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched" class="text text-danger">
-                    password field is required
+                    password field should contain - at least one uppercase<br> One lowercase <br>Minimum lenght is Eight<br>One number
                 </div>                
 
                 <div class="input-group mt-3">
                     <span class="input-group-text"><i class="bi-cursor-fill"></i></span>
                     <input class="form-control " formControlName="district" placeholder="District" type="text" required="">
                 </div> 
-                <div *ngIf="registerForm.controls['district'].invalid && registerForm.controls['district'].touched" class="text text-danger">
+                <div style="text-align:margin-left;" *ngIf="registerForm.controls['district'].invalid && registerForm.controls['district'].touched" class="text text-danger">
                     District field is required
                 </div>
-
-                <button type="submit" class="btn btn-success mt-3 mb-3" [disabled]="registerForm.invalid">Register</button>
-                <button type="button" style="margin-left:20px ;" class="btn btn-success mt-3 mb-3" routerLink="/">Login</button>
-            </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success mt-3 mb-3" [disabled]="registerForm.invalid">Register</button>
+                        <button type="button" style="margin-left:20px ;" class="btn btn-success mt-3 mb-3" routerLink="/">Login</button>     
+                    </div>
+                </div>
         </div>
     </div>
 </form>

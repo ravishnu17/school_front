@@ -20,10 +20,10 @@ export class RegisterComponent implements OnInit {
       name:[''],
       dob:[''],
       gender:[''],
-      mobile:[''],
+      mobile:['',[Validators.minLength(10),Validators.maxLength(10)]],
       email:['',Validators.required],
       username:[''],
-      password:[''],
+      password:['',Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')],
       district:['']
 
     })

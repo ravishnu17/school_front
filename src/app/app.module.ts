@@ -14,6 +14,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TestComponent } from './test/test.component';
 import { SchoolProfileComponent } from './school-profile/school-profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
     NgxPaginationModule,
+    NgSelectModule
     
   ],
   providers: [],

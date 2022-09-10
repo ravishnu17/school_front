@@ -21,7 +21,8 @@ export class SchoolProfileComponent implements OnInit {
   dataForm! : FormGroup;
   
   selected:any=[];
-  dropdownList :any=[];
+  medium:any=[];
+  schoolLevel :any=[];
   dropdownSetting : IDropdownSettings={};
 
   constructor(private fb : FormBuilder , private subService : SubserviceService ,private route : Router) { }
@@ -38,13 +39,26 @@ export class SchoolProfileComponent implements OnInit {
       idField:"id",textField:'text'
     }
 
-    this.dropdownList=[
+    this.schoolLevel=[
       {id:1 , text:'Foundation(PreKG to II)'},
       {id:2 , text:'Preparatory(std III to std V'},
       {id:3 , text:'Middle(VI to VIII)'},
       {id:4 , text:'Secondary(VI - X)'},
       {id:5 , text:'Higher Secondary(VI to XII)'},
       {id:6 , text:'Primary X'},
+    ];
+
+    this.dropdownSetting={
+      idField:"id",textField:'text'
+    }
+
+    this.medium=[
+      {id:1 , text:'Tamil'},
+      {id:2 , text:'English'},
+      {id:3 , text:'Telugu'},
+      {id:4 , text:'Hindi'},
+      {id:5 , text:'Malayalam'},
+      {id:6 , text:'Kannada'},
     ];
 
     this.dataForm = this.fb.group({
@@ -313,10 +327,22 @@ export class SchoolProfileComponent implements OnInit {
     });
 
     this.subService.get('/SchoolProfile').subscribe(arg=>{
-      this.dataForm.patchValue(arg); 
+      
+      for(let val of arg.level){
+        this.selected.push({id:Number(val[0]),text:val[1]});
+      }
+      arg.level = this.selected;
 
+      this.selected=[];
+      for (let val of arg.medium){
+        this.selected.push({id:Number(val[0]),text:val[1]})
+      }
+      arg.medium =this.selected;
+      
+      this.dataForm.patchValue(arg);
+      
       this.get=arg.scholarship;
-      for (let data of this.get){ 
+      for (let data of this.get){         
         this.Scholarship().push(this.loadScholarship(data));
       }
 
@@ -342,9 +368,6 @@ export class SchoolProfileComponent implements OnInit {
       })
       this.route.navigate(['/'])
     });
-    
-  //  this.addScholarship();
-  //  this.addScholarship();
     
   }
 
@@ -456,7 +479,7 @@ export class SchoolProfileComponent implements OnInit {
   }
 
   submit(){
-    console.log("check",this.dataForm.value);
+    console.log("check",this.dataForm.controls['level'].value);
       
       this.subService.post(this.dataForm.value , '/schoolUpdate').subscribe(arg =>{
       this.status = arg;
