@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
       username:[''],
       district:[''],
       oldPwd:[''],
-      newPwd:['',Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]
+      newPwd:['',Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}')]
     });
 
   }
@@ -88,10 +88,17 @@ export class ProfileComponent implements OnInit {
       alert("FIll the missing");
     }
     else{
-      this.subService.post(this.profileForm.value , '/pwd').subscribe(arg=>{
-        this.pwd = arg;
-        this.status = this.pwd.status ; 
-      });
+      if(this.profileForm.controls['oldPwd'].value == this.profileForm.controls['newPwd'].value ){
+        this.status =2;
+      }else{
+        this.subService.post(this.profileForm.value , '/pwd').subscribe(arg=>{         
+          this.pwd = arg;
+          this.status = this.pwd.status ; 
+        },error =>{
+          this.status = error.error.status;
+          
+        });
+      }
     }
   }
   remove(){

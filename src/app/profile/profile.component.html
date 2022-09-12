@@ -97,9 +97,9 @@
                         <div class="card-body">
                             <div class="row">
                                 <div *ngIf="status == 1" class="alert alert-success">Successfully changed</div>
-                                <div *ngIf="status == 0" class="alert alert-danger">Password doesn't match with record
+                                <div *ngIf="status == 0" class="alert alert-danger">Your old password is incorrect
                                 </div>
-                                <div *ngIf="status == 2" class="alert alert-danger">Password Should be same </div>
+                                <div *ngIf="status == 2" class="alert alert-danger">Password should not be same </div>
 
                                 <div class="col-1"></div>
                                 <div class="col-4 mt-2">
@@ -116,7 +116,7 @@
                                             type="text" required="">
                                     </div>
                                     <div *ngIf="profileForm.controls['newPwd'].invalid" class="text text-danger mt-1">
-                                        password field should contain <br>- at least one uppercase - One lowercase <br>- Minimum lenght is Eight - One number 
+                                        password field should contain <br>- at least one uppercase - One special character <br>- One number - Minimum lenght is six 
                                     </div>
                                 </div>
                             </div>

@@ -1,13 +1,13 @@
 <form [formGroup]="registerForm" (ngSubmit)="submit()" >
     <div class="container-fluid ">
         <div class="row mt-3">
-            <div class="col-2"></div>
-            <div class="col-md-3 bg-white">
-                <img class="mt-5" src="../assets/Media/login_side_img.png" alt="DBSTAR">
+            <div class="col-1"></div>
+            <div class="col-md-3 bg-white " >
+                <img class="d-flex " src="../assets/Media/login_side_img.png" alt="DBSTAR">
               </div>
-            <div class="col-md-4  bg-white" >
+            <div class="col-md-6  bg-white" >
 
-                <img src="../assets/Media/dbstar_logo.png" width="200" alt="DBSTAR">
+                <img class='rounded mx-auto d-block' src="../assets/Media/dbstar_logo.png" width="200" alt="DBSTAR">
                 <h4 style="font-family:'Times New Roman', Times, serif ;font-weight:bold;color:blue;text-align: center;">User Registration</h4>
                 <div *ngIf="error!=null" class="alert alert-danger">{{error}}</div>
                 <div class="row">
