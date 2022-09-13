@@ -46,7 +46,7 @@
                     <div class="col">
                         <div class="input-group mt-3">
                             <span class="input-group-text"><i class="bi-envelope-fill"></i></span>
-                            <input class="form-control " formControlName="email" placeholder="Email" type="mail" ngModel [email]="true" required="">
+                            <input class="form-control " formControlName="email" placeholder="Email" type="mail" [email]="true" required="">
                         </div>
                         <div *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched" class="text text-danger">
                             Enter valid mail id

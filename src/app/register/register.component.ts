@@ -41,9 +41,8 @@ export class RegisterComponent implements OnInit {
           alert("Registered Successfully Continue to login ");
           this.route.navigateByUrl('');
         }
-        else{
-          this.error=this.data.msg;
-        }
+      },error=>{
+        this.error = error.error.msg
       })
     }
     
