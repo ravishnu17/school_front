@@ -63,15 +63,14 @@ export class ProfileComponent implements OnInit {
     else{
       this.subService.post(this.profileForm.value , '/profileUpdate').subscribe(arg =>{
         this.data=arg;
+        Swal.fire({
+          position:'top',
+          text:'Your profile updated successfully',
+          icon:'success'
+        });
+      },error=>{
         if(this.data.msg != null){
           Swal.fire("",this.data.msg,"warning");
-        }
-        else{
-          Swal.fire({
-            position:'top',
-            text:'Your profile updated successfully',
-            icon:'success'
-          });
         }
       });
 
