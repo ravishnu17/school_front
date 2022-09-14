@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
   }
 
   forgotPwd(){
-    console.log(this.loginForm.value);
     if (this.loginForm.controls['username'].invalid && this.loginForm.controls['pin'].invalid && this.loginForm.controls['pwd'].invalid) {
       alert("Field should not be Empty");
     }
@@ -77,7 +76,7 @@ export class LoginComponent implements OnInit {
       },error =>{
         this.data = error;
         this.error = this.data.error.detail;
-        console.log(this.data , this.error);
+        // console.log(this.data , this.error);
         
       });
     }
@@ -85,12 +84,12 @@ export class LoginComponent implements OnInit {
 
   submit() {
 
-    if (this.loginForm.invalid) {
+    if (this.loginForm.invalid) {      
       this.error="Enter your data";
     }
     else {
         // const login = JSON.parse(JSON.stringify(this.loginForm.value))
-        console.log("login data",this.loginForm.value)
+        // console.log("login data",this.loginForm.value)
 
         this.form = new FormData();
         this.form.append("username",this.loginForm.controls['username'].value);
@@ -103,7 +102,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token',this.data.access_token);
           localStorage.setItem('type',this.data.token_type); 
 
-          console.log("login token",localStorage.getItem('token'));
+          // console.log("login token",localStorage.getItem('token'));
           Swal.fire({
             title:"Login successfully",
             showConfirmButton:false,

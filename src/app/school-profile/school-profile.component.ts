@@ -15,6 +15,7 @@ export class SchoolProfileComponent implements OnInit {
   status :any;
   type : any;
   get : any;
+  submitted = false;
   step=1;
   count=1;
   page = new Array(20);
@@ -62,15 +63,15 @@ export class SchoolProfileComponent implements OnInit {
     ];
 
     this.dataForm = this.fb.group({
-      name:[],
-      post:[] ,
-      district:[],
-      state:[],
-      ctv:[],
-      pincode:['',[Validators.pattern("^[0-6]*$"),Validators.minLength(6),Validators.maxLength(6)]],
-      url:[],
-      mail:[,[Validators.email]],  
-      mobile:[,[Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+      name:[,[Validators.required]],
+      post:[,[Validators.required]] ,
+      district:[,[Validators.required]],
+      state:[,[Validators.required]],
+      ctv:[,[Validators.required]],
+      pincode:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(6),Validators.maxLength(6)]],
+      url:[,[Validators.required]],
+      mail:[,[Validators.required,Validators.email]],  
+      mobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
       type:[,[Validators.required]],
       needs:[],
       academic:[,[Validators.required]],
@@ -78,46 +79,46 @@ export class SchoolProfileComponent implements OnInit {
       level:[,[Validators.required]],
       medium:[,[Validators.required]],
       affiliation:[,[Validators.required]],
-      t_staff:[],
+      t_staff:[,[Validators.required]],
       gender:[,[Validators.required]],
-      girl:[],
-      boys:[],
-      total:[],
-      n_staff:[],
-      correspondent_name:[],
-      correspondent_mobile:[,[Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-      correspondent_mail:[,[Validators.email]],
-      principal_name:[],
-      principal_mail:[,[Validators.email]],
-      principal_office_mobile:[,[Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-      principal_mobile:[,[Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+      girl:[,[Validators.required]],
+      boys:[,[Validators.required]],
+      total:[,[Validators.required]],
+      n_staff:[,[Validators.required]],
+      correspondent_name:[,[Validators.required]],
+      correspondent_mobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+      correspondent_mail:[,[Validators.required,Validators.email]],
+      principal_name:[,[Validators.required]],
+      principal_mail:[,[Validators.required,Validators.email]],
+      principal_office_mobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+      principal_mobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
       recognized:[],
       board_name:[,[Validators.required]],
-      affiliate_number:[],
-      affiliate_year:[],
+      affiliate_number:[,[Validators.required]],
+      affiliate_year:[,[Validators.required]],
       affiliate_type:[,[Validators.required]],
       affiliate_state:[],
-      christian:[],
-      hindu:[],
-      islam:[],
-      others:[],
-      nonBeliver:[],
-      fire:[,[Validators.required]],
-      sanitation:[,[Validators.required]],
-      building:[,[Validators.required]],
-      minority:[,[Validators.required]],
+      christian:[,[Validators.required]],
+      hindu:[,[Validators.required]],
+      islam:[,[Validators.required]],
+      others:[,[Validators.required]],
+      nonBeliver:[,[Validators.required]],
+      fire:[],
+      sanitation:[],
+      building:[],
+      minority:[],
       own:[,[Validators.required]],
-      trust_name:[],
+      trust_name:[,[Validators.required]],
       trust_register:[,[Validators.required]],
       register_act:[],
       register_year:[],
-      register_no:[],
+      register_no:[,[Validators.required]],
       register_validity:[],
-      president_name:[],
+      president_name:[,[Validators.required]],
       president_designation:[],
-      president_address:[],
-      president_number:[,[Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-      president_email:[,[Validators.email]],
+      president_address:[,[Validators.required]],
+      president_number:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+      president_email:[,[Validators.required,Validators.email,]],
       gover_trust:[,[Validators.required]],
       gover_member:[],
       gover_tenure:[],
@@ -136,31 +137,31 @@ export class SchoolProfileComponent implements OnInit {
       constitution_member:[],
       constitution_tenure:[],
       school_building:[,[Validators.required]],
-      schoolArea:[],
-      schoolBuilt:[],
-      groundArea:[],
-      noBuilding:[],
+      schoolArea:[,[Validators.required]],
+      schoolBuilt:[,[Validators.required]],
+      groundArea:[,[Validators.required]],
+      noBuilding:[,[Validators.required]],
       provision:[],
-      noStaircase:[],
-      lift:[],
-      classRoom:[],
-      staffRoom:[],
-      physicalLab:[],
-      chemistryLab:[],
-      biologylab:[],
-      mathsLab:[],
+      noStaircase:[,[Validators.required]],
+      lift:[,[Validators.required]],
+      classRoom:[,[Validators.required]],
+      staffRoom:[,[Validators.required]],
+      physicalLab:[,[Validators.required]],
+      chemistryLab:[,[Validators.required]],
+      biologylab:[,[Validators.required]],
+      mathsLab:[,[Validators.required]],
       science:[],
-      library:[],
-      auditorium:[],
-      counselor:[],
+      library:[,[Validators.required]],
+      auditorium:[,[Validators.required]],
+      counselor:[,[Validators.required]],
       parlor:[],
       prayer:[],
-      sick:[],
+      sick:[,[Validators.required]],
       canteen:[],
       security:[],
       otherRoom:[],
-      staffToilets:[],
-      studToilet:[],
+      staffToilets:[,[Validators.required]],
+      studToilet:[,[Validators.required]],
       teacher:[],
       boundry:[,[Validators.required]],
       boundry_wall:[],
@@ -479,8 +480,9 @@ export class SchoolProfileComponent implements OnInit {
   }
 
   submit(){
-    console.log("check",this.dataForm.controls['level'].value);
-      
+    this.submitted=true;
+    if(this.dataForm.valid){
+
       this.subService.post(this.dataForm.value , '/schoolUpdate').subscribe(arg =>{
       this.status = arg;
       console.log(arg);
@@ -518,17 +520,18 @@ export class SchoolProfileComponent implements OnInit {
       this.route.navigate(['/']);
     });
   }
-
-  change(cnt:any){
-    if (cnt>=20){
-      cnt=20;
-    }
-    else if(cnt<1){
-      cnt=1;
-    }
-    this.step=cnt;
-    console.log(cnt);
-    
   }
+
+  // change(cnt:any){
+  //   if (cnt>=20){
+  //     cnt=20;
+  //   }
+  //   else if(cnt<1){
+  //     cnt=1;
+  //   }
+  //   this.step=cnt;
+  //   console.log(cnt,this.step);
+    
+  // }
 
 }

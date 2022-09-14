@@ -3,7 +3,7 @@
         <form [formGroup]="dataForm" (submit)="submit()">
                 <h4 class="text-primary" style="text-align:center;">Edustar School Profile</h4>
             <div *ngFor="let count of page | paginate:{itemsPerPage:1,currentPage: step}">
-                <div *ngIf="step==1">
+                <div *ngIf="step<=1">
                     <div class="card">
                         <div class="card-header bg-primary text-white">{{step}}- General Information</div>
                         <div class="card-body">
@@ -14,10 +14,10 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-school"></i></span>
                                             <input class="form-control " formControlName="name"
-                                                placeholder="Name of the Institution" type="text" required="">
+                                                placeholder="Name of the Institution" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['name'].invalid && dataForm.controls['name'].touched">
-                                            Institution field is required
+                                        <div class="text-danger" *ngIf="(dataForm.controls['name'].touched || submitted) && dataForm.controls['name'].invalid ">
+                                            Institution field is required 
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-2">
@@ -25,9 +25,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                             <input class="form-control " formControlName="post"
-                                                placeholder="Enter Postal Address" type="text" required="">
+                                                placeholder="Enter Postal Address" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['post'].invalid && dataForm.controls['post'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['post'].invalid && (dataForm.controls['post'].touched || submitted)">
                                             Address field is required
                                         </div>
                                     </div>
@@ -36,9 +36,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                             <input class="form-control " formControlName="district"
-                                                placeholder="Enter the district" type="text" required="">
+                                                placeholder="Enter the district" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['district'].invalid && dataForm.controls['district'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['district'].invalid && (dataForm.controls['district'].touched || submitted)">
                                             District field is required
                                         </div>
                                     </div>
@@ -49,9 +49,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                             <input class="form-control " formControlName="state"
-                                                placeholder="Enter the state" type="text" required="">
+                                                placeholder="Enter the state" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['state'].invalid && dataForm.controls['state'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['state'].invalid && (dataForm.controls['state'].touched || submitted)">
                                             State field is required
                                         </div>
                                     </div>
@@ -60,9 +60,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                                             <input class="form-control " formControlName="ctv"
-                                                placeholder="Enter city/town/villege" type="text" required="">
+                                                placeholder="Enter city/town/villege" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['ctv'].invalid && dataForm.controls['ctv'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['ctv'].invalid && (dataForm.controls['ctv'].touched || submitted)">
                                             City/Town/Villege field is required
                                         </div>
                                     </div>
@@ -70,9 +70,9 @@
                                         <label for="pincode">Pincode <span class="text text-danger bg-white">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                                            <input class="form-control " formControlName="pincode" placeholder="Enter the Pincode" required="">
+                                            <input class="form-control " formControlName="pincode" placeholder="Enter the Pincode" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['pincode'].invalid && dataForm.controls['pincode'].touched ">
+                                        <div class="text-danger" *ngIf="dataForm.controls['pincode'].invalid && (dataForm.controls['pincode'].touched || submitted) ">
                                             Enter Valid Pincode
                                         </div>
                                     </div>
@@ -83,9 +83,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fa fa-link"></i></span>
                                             <input class="form-control " formControlName="url"
-                                                placeholder="Enter the URL" type="text" required="">
+                                                placeholder="Enter the URL" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['url'].invalid && dataForm.controls['url'].touched ">
+                                        <div class="text-danger" *ngIf="dataForm.controls['url'].invalid && (dataForm.controls['url'].touched || submitted) ">
                                             URL field is required
                                         </div>
                                     </div>
@@ -94,9 +94,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-at"></i></span>
                                             <input class="form-control " formControlName="mail"
-                                                placeholder="Enter official Email id" [email]="true" type="text" required="">
+                                                placeholder="Enter official Email id" [email]="true" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['mail'].invalid && dataForm.controls['mail'].touched ">
+                                        <div class="text-danger" *ngIf="dataForm.controls['mail'].invalid && (dataForm.controls['mail'].touched || submitted) ">
                                             Enter valid mail ID
                                         </div>
                                     </div>
@@ -105,9 +105,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fa fa-phone"></i></span>
                                             <input class="form-control " formControlName="mobile"
-                                                placeholder="Enter official Phone Number" type="text" required="">
+                                                placeholder="Enter official Phone Number" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['mobile'].invalid && dataForm.controls['mobile'].touched ">
+                                        <div class="text-danger" *ngIf="dataForm.controls['mobile'].invalid && (dataForm.controls['mobile'].touched || submitted) ">
                                             Enter valid mobile Number
                                         </div>
                                     </div>
@@ -125,7 +125,7 @@
                                                 <option value="Tribal">Tribal</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['type'].invalid && dataForm.controls['type'].touched ">
+                                        <div class="text-danger" *ngIf="dataForm.controls['type'].invalid && (dataForm.controls['type'].touched || submitted) ">
                                             Select your school Location
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@
                                                 <option value="2018-2019">2018-2019</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['academic'].invalid && dataForm.controls['academic'].touched ">
+                                        <div class="text-danger" *ngIf="dataForm.controls['academic'].invalid && (dataForm.controls['academic'].touched || submitted )">
                                             Select Academic Year
                                         </div>
                                     </div>
@@ -173,7 +173,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                                             <input class="form-control " formControlName="establish"
-                                                placeholder="Enter year of establishment" type="number" required="">
+                                                placeholder="Enter year of establishment" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-2">
@@ -187,7 +187,7 @@
                                                 formControlName="level">
                                             </ng-multiselect-dropdown>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['level'].invalid && dataForm.controls['level'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['level'].invalid && (dataForm.controls['level'].touched || submitted)">
                                             Select your school level
                                         </div>
                                     </div>
@@ -203,7 +203,7 @@
 
                                         </ng-multiselect-dropdown>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['medium'].invalid && dataForm.controls['medium'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['medium'].invalid && (dataForm.controls['medium'].touched || submitted)">
                                             Select Medium
                                         </div>
                                     </div>
@@ -221,7 +221,7 @@
                                                 <option value="Private Partially-Aided">Private Partially-Aided</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['affiliation'].invalid && dataForm.controls['affiliation'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['affiliation'].invalid && (dataForm.controls['affiliation'].touched || submitted)">
                                             Select nature of Affiliation
                                         </div>
                                     </div>
@@ -231,9 +231,9 @@
                                             <span class="input-group-text"><i class="fas fa-poll"></i></span>
                                             <input class="form-control " formControlName="t_staff"
                                                 placeholder="Enter Total No.of teaching staff" type="number"
-                                                required="">
+                                                >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['t_staff'].invalid && dataForm.controls['t_staff'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['t_staff'].invalid && (dataForm.controls['t_staff'].touched || submitted)">
                                             This field is mandatory.
                                         </div>    
                                     </div>
@@ -248,7 +248,7 @@
                                                 <option value="Co-Educational">Co-Educational</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['gender'].invalid && dataForm.controls['gender'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['gender'].invalid && (dataForm.controls['gender'].touched || submitted)">
                                             Select Gender
                                         </div>
                                     </div>
@@ -259,9 +259,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fa fa-poll"></i></span>
                                             <input class="form-control " formControlName="girl"
-                                                placeholder="Enter Total number of girls" type="number" required="">
+                                                placeholder="Enter Total number of girls" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['girl'].invalid && dataForm.controls['girl'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['girl'].invalid && (dataForm.controls['girl'].touched || submitted)">
                                             This field is mandatory.
                                         </div>
                                     </div>
@@ -270,9 +270,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-poll"></i></span>
                                             <input class="form-control " formControlName="boys"
-                                                placeholder="Enter ototal number of boys" type="number" required="">
+                                                placeholder="Enter ototal number of boys" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['boys'].invalid && dataForm.controls['boys'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['boys'].invalid && (dataForm.controls['boys'].touched || submitted)">
                                             This field is mandatory.
                                         </div>
                                     </div>
@@ -281,9 +281,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fa fa-poll"></i></span>
                                             <input class="form-control " formControlName="total"
-                                                placeholder="Enter Total no.of student" type="number" required="">
+                                                placeholder="Enter Total no.of student" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['total'].invalid && dataForm.controls['total'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['total'].invalid && (dataForm.controls['total'].touched || submitted)">
                                             This field is mandatory.
                                         </div>
                                     </div>
@@ -294,9 +294,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-poll"></i></span>
                                             <input type="number" class="form-control" formControlName="n_staff"
-                                                placeholder="Enter Total number of Non-teaching staff" required="">
+                                                placeholder="Enter Total number of Non-teaching staff" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['n_staff'].invalid && dataForm.controls['n_staff'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['n_staff'].invalid && (dataForm.controls['n_staff'].touched || submitted)">
                                             This field is mandatory.
                                         </div>
                                     </div>
@@ -305,9 +305,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                             <input type="text" class="form-control" formControlName="correspondent_name"
-                                                placeholder="Enter correspondent Name" required="">
+                                                placeholder="Enter correspondent Name" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['correspondent_name'].invalid && dataForm.controls['correspondent_name'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['correspondent_name'].invalid && (dataForm.controls['correspondent_name'].touched || submitted)">
                                             Enter Correspondent Name
                                         </div>
                                     </div>
@@ -317,9 +317,9 @@
                                             <span class="input-group-text"><i class="fa fa-mobile"></i></span>
                                             <input type="text" class="form-control"
                                                 formControlName="correspondent_mobile"
-                                                placeholder="Enter correspondent Mobile Number" required="">
+                                                placeholder="Enter correspondent Mobile Number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['correspondent_mobile'].invalid && dataForm.controls['correspondent_mobile'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['correspondent_mobile'].invalid && (dataForm.controls['correspondent_mobile'].touched || submitted)">
                                             Enter valid number
                                         </div>
                                     </div>
@@ -330,9 +330,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-envelope-open"></i></span>
                                             <input type="text" class="form-control" [email]="true" formControlName="correspondent_mail"
-                                                placeholder="Enter correspondent Email ID" required="">
+                                                placeholder="Enter correspondent Email ID" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['correspondent_mail'].invalid && dataForm.controls['correspondent_mail'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['correspondent_mail'].invalid && (dataForm.controls['correspondent_mail'].touched || submitted)">
                                             Enter valid Email ID
                                         </div>
                                     </div>
@@ -341,9 +341,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                                             <input type="text" class="form-control" formControlName="principal_name"
-                                                placeholder="Enter principal/Headmaster name" required="">
+                                                placeholder="Enter principal/Headmaster name" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['principal_name'].invalid && dataForm.controls['principal_name'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['principal_name'].invalid && (dataForm.controls['principal_name'].touched || submitted)">
                                             Enter Principal Name
                                         </div>
                                     </div>
@@ -352,9 +352,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-envelope-open"></i></span>
                                             <input type="text" class="form-control" [email]="true" formControlName="principal_mail"
-                                                placeholder="Enter principal/Headmaster Email ID" required="">
+                                                placeholder="Enter principal/Headmaster Email ID" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['principal_mail'].invalid && dataForm.controls['principal_name'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['principal_mail'].invalid && (dataForm.controls['principal_name'].touched || submitted)">
                                             Enter valid Principal Mail ID
                                         </div>
                                     </div>
@@ -366,9 +366,9 @@
                                                 <input type="text" class="form-control"
                                                     formControlName="principal_office_mobile"
                                                     placeholder="Enter principal/Headmaster Office Mobile Number"
-                                                    required="">
+                                                    >
                                             </div>
-                                            <div class="text-danger" *ngIf="dataForm.controls['principal_office_mobile'].invalid && dataForm.controls['principal_office_mobile'].touched">
+                                            <div class="text-danger" *ngIf="dataForm.controls['principal_office_mobile'].invalid && (dataForm.controls['principal_office_mobile'].touched || submitted)">
                                                 Enter valid mobile number
                                             </div>
                                         </div>
@@ -378,9 +378,9 @@
                                                 <span class="input-group-text"><i class="fa fa-mobile"></i></span>
                                                 <input type="text" class="form-control"
                                                     formControlName="principal_mobile"
-                                                    placeholder="Enter principal/Headmaster Mobile Number" required="">
+                                                    placeholder="Enter principal/Headmaster Mobile Number" >
                                             </div>
-                                            <div class="text-danger" *ngIf="dataForm.controls['principal_mobile'].invalid && dataForm.controls['principal_mobile'].touched">
+                                            <div class="text-danger" *ngIf="dataForm.controls['principal_mobile'].invalid && (dataForm.controls['principal_mobile'].touched || submitted)">
                                                 Enter valid mobile number.
                                             </div>
                                         </div>
@@ -424,7 +424,7 @@
                                                 <option value="Others">Others</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['board_name'].invalid && dataForm.controls['board_name'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['board_name'].invalid && (dataForm.controls['board_name'].touched || submitted)">
                                             Select your school Board
                                         </div>
                                     </div>
@@ -433,9 +433,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input class="form-control" type="text" formControlName="affiliate_number"
-                                                placeholder="Enter Affiliation Numbers" required="">
+                                                placeholder="Enter Affiliation Numbers" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['affiliate_number'].invalid && dataForm.controls['affiliate_number'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['affiliate_number'].invalid && (dataForm.controls['affiliate_number'].touched || submitted)">
                                             Enter Affiliation number
                                         </div>
                                     </div>
@@ -446,9 +446,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
                                             <input class="form-control" type="number" formControlName="affiliate_year"
-                                                placeholder="Enter Year of Affiliation" required="">
+                                                placeholder="Enter Year of Affiliation" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['affiliate_year'].invalid && dataForm.controls['affiliate_year'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['affiliate_year'].invalid && (dataForm.controls['affiliate_year'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -462,7 +462,7 @@
                                                 <option value="Temporary">Temporary</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['affiliate_type'].invalid && dataForm.controls['affiliate_type'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['affiliate_type'].invalid && (dataForm.controls['affiliate_type'].touched || submitted)">
                                             Select your school Affiliation
                                         </div>
                                     </div>
@@ -472,7 +472,7 @@
                                             <span class="input-group-text"><i class="fas fa-edit"></i></span>
                                             <input class="form-control " formControlName="affiliate_state"
                                                 placeholder="Enter the condition for Affiliation " type="text"
-                                                required="">
+                                                >
                                         </div>
                                     </div>
                                 </div>
@@ -485,9 +485,9 @@
                                             <span class="input-group-text"><i
                                                     class="fas fa-sort-numeric-down"></i></span>
                                             <input class="form-control " formControlName="christian"
-                                                placeholder="Christian" type="number" required="">
+                                                placeholder="Christian" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['christian'].invalid && dataForm.controls['christian'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['christian'].invalid && (dataForm.controls['christian'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -497,9 +497,9 @@
                                             <span class="input-group-text"><i
                                                     class="fas fa-sort-numeric-down"></i></span>
                                             <input class="form-control " formControlName="hindu" placeholder="Hindu"
-                                                type="text" required="">
+                                                type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['hindu'].invalid && dataForm.controls['hindu'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['hindu'].invalid && (dataForm.controls['hindu'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -509,9 +509,9 @@
                                             <span class="input-group-text"><i
                                                     class="fas fa-sort-numeric-down"></i></span>
                                             <input class="form-control " formControlName="islam" placeholder="Islam"
-                                                type="text" required="">
+                                                type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['islam'].invalid && dataForm.controls['islam'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['islam'].invalid && (dataForm.controls['islam'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -521,9 +521,9 @@
                                             <span class="input-group-text"><i
                                                     class="fas fa-sort-numeric-down"></i></span>
                                             <input class="form-control " formControlName="others" placeholder="Others"
-                                                type="text" required="">
+                                                type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['others'].invalid && dataForm.controls['others'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['others'].invalid && (dataForm.controls['others'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -533,9 +533,9 @@
                                             <span class="input-group-text"><i
                                                     class="fas fa-sort-numeric-down"></i></span>
                                             <input class="form-control " formControlName="nonBeliver"
-                                                placeholder="Non Belivers" type="text" required="">
+                                                placeholder="Non Belivers" type="text" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['nonBeliver'].invalid && dataForm.controls['nonBeliver'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['nonBeliver'].invalid && (dataForm.controls['nonBeliver'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -627,7 +627,7 @@
                                                 <option value="Company">Company</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['own'].invalid && dataForm.controls['own'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['own'].invalid && (dataForm.controls['own'].touched || submitted)">
                                             Select ownership type
                                         </div>
                                     </div>
@@ -636,9 +636,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-university"></i></span>
                                             <input type="text" class="form-control" formControlName="trust_name"
-                                                placeholder="Enter the name of Trust \ Society\ Company" required="">
+                                                placeholder="Enter the name of Trust \ Society\ Company" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['trust_name'].invalid && dataForm.controls['trust_name'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['trust_name'].invalid && (dataForm.controls['trust_name'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -653,7 +653,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['trust_register'].invalid && dataForm.controls['trust_register'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['trust_register'].invalid && (dataForm.controls['trust_register'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -664,7 +664,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-edit"></i></span>
                                             <input type="text" class="form-control" formControlName="register_act"
-                                                placeholder="Enter the act" required="">
+                                                placeholder="Enter the act" >
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -672,7 +672,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
                                             <input type="number" class="form-control" formControlName="register_year"
-                                                placeholder="Enter the year of Registration" required="">
+                                                placeholder="Enter the year of Registration" >
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -680,9 +680,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-arrow-right"></i></span>
                                             <input type="text" class="form-control" formControlName="register_no"
-                                                placeholder="Enter Registration Number" required="">
+                                                placeholder="Enter Registration Number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['register_no'].invalid && dataForm.controls['register_no'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['register_no'].invalid && (dataForm.controls['register_no'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -693,7 +693,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                             <input type="text" class="form-control" formControlName="register_validity"
-                                                placeholder="Enter Period of validity of Registration" required="">
+                                                placeholder="Enter Period of validity of Registration" >
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -701,9 +701,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                                             <input type="text" class="form-control" formControlName="president_name"
-                                                placeholder="Enter the Name" required="">
+                                                placeholder="Enter the Name" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['president_name'].invalid && dataForm.controls['president_name'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['president_name'].invalid && (dataForm.controls['president_name'].touched || submitted)">
                                             Enter President Name
                                         </div>
                                     </div>
@@ -714,7 +714,7 @@
                                             <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
                                             <input type="text" class="form-control"
                                                 formControlName="president_designation" placeholder="Enter Designation"
-                                                required="">
+                                                >
                                         </div>
                                     </div>
                                 </div>
@@ -725,9 +725,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
                                             <input type="text" class="form-control" formControlName="president_address"
-                                                placeholder="Enter the address " required="">
+                                                placeholder="Enter the address " >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['president_address'].invalid && dataForm.controls['president_address'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['president_address'].invalid && (dataForm.controls['president_address'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -737,9 +737,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-mobile"></i></span>
                                             <input type="text" class="form-control" formControlName="president_number"
-                                                placeholder="Enter Mobile Number" required="">
+                                                placeholder="Enter Mobile Number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['president_number'].invalid && dataForm.controls['president_number'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['president_number'].invalid && (dataForm.controls['president_number'].touched || submitted)">
                                             Enter valid mobile number
                                         </div>
                                     </div>
@@ -749,9 +749,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-envelope-open"></i></span>
                                             <input type="text" class="form-control" [email]="true" formControlName="president_email"
-                                                placeholder="Enter Email ID" required="">
+                                                placeholder="Enter Email ID" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['president_email'].invalid && dataForm.controls['president_email'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['president_email'].invalid && (dataForm.controls['president_email'].touched || submitted)">
                                             Enter valid mail ID
                                         </div>
                                     </div>
@@ -779,7 +779,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['gover_trust'].invalid && dataForm.controls['gover_trust'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['gover_trust'].invalid && (dataForm.controls['gover_trust'].touched || submitted)">
                                             Select governing body
                                         </div>
                                     </div>
@@ -788,7 +788,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input type="number" class="form-control" formControlName="gover_member"
-                                                placeholder="Enter how many member" required="">
+                                                placeholder="Enter how many member" >
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -796,7 +796,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input type="number" class="form-control" formControlName="gover_tenure"
-                                                placeholder="Enter Tenure of each member" required="">
+                                                placeholder="Enter Tenure of each member" >
                                         </div>
                                     </div>
                                 </div>
@@ -812,7 +812,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['educative'].invalid && dataForm.controls['educative'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['educative'].invalid && (dataForm.controls['educative'].touched || submitted)">
                                             Select Educative Community Council
                                         </div>
                                     </div>
@@ -821,7 +821,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input type="number" class="form-control" formControlName="educative_member"
-                                                placeholder="Enter how many member" required="">
+                                                placeholder="Enter how many member" >
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-4">
@@ -829,7 +829,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input type="number" class="form-control" formControlName="educative_tenure"
-                                                placeholder="Enter Tenure of each member" required="">
+                                                placeholder="Enter Tenure of each member" >
                                         </div>
                                     </div>
                                 </div>
@@ -845,7 +845,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['pta'].invalid && dataForm.controls['pta'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['pta'].invalid && (dataForm.controls['pta'].touched || submitted)">
                                             Select Parent Teacher Association
                                         </div>
                                     </div>
@@ -854,7 +854,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input type="number" class="form-control" formControlName="pta_member"
-                                                placeholder="Enter how many member" required="">
+                                                placeholder="Enter how many member" >
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-4">
@@ -862,7 +862,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input type="number" class="form-control" formControlName="pta_tenure"
-                                                placeholder="Enter Tenure of each member" required="">
+                                                placeholder="Enter Tenure of each member" >
                                         </div>
                                     </div>
                                 </div>
@@ -889,7 +889,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['student_council'].invalid && dataForm.controls['student_council'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['student_council'].invalid && (dataForm.controls['student_council'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -898,7 +898,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input type="number" class="form-control" formControlName="student_member"
-                                                placeholder="Enter how many member" required="">
+                                                placeholder="Enter how many member" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -906,7 +906,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fa fa-list"></i></span>
                                             <input type="number" class="form-control" formControlName="student_tenure"
-                                                placeholder="Enter Tenure of each member" required="">
+                                                placeholder="Enter Tenure of each member" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -920,7 +920,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['general_complaint'].invalid && dataForm.controls['general_complaint'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['general_complaint'].invalid && (dataForm.controls['general_complaint'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -937,7 +937,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['school_commit'].invalid && dataForm.controls['school_commit'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['school_commit'].invalid && (dataForm.controls['school_commit'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -958,7 +958,7 @@
                                                 <option value="Student">Student</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['constitution_commit'].invalid && dataForm.controls['constitution_commit'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['constitution_commit'].invalid && (dataForm.controls['constitution_commit'].touched || submitted)">
                                             Select Constitution management
                                         </div>
                                     </div>
@@ -969,7 +969,7 @@
                                             <span class="input-group-text"><i class="fa fa-university"></i></span>
                                             <input type="number" class="form-control"
                                                 formControlName="constitution_member"
-                                                placeholder="Enter how many member" required="">
+                                                placeholder="Enter how many member" >
                                         </div>
                                     </div>
                                 </div>
@@ -996,7 +996,7 @@
                                                 <option value="Own building">Own building</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['school_building'].invalid && dataForm.controls['school_building'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['school_building'].invalid && (dataForm.controls['school_building'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1006,9 +1006,9 @@
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="schoolArea"
                                                 placeholder="Enter Area of school in Square meter" type="number"
-                                                required="">
+                                                >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['schoolArea'].invalid && dataForm.controls['schoolArea'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['schoolArea'].invalid && (dataForm.controls['schoolArea'].touched || submitted)">
                                             Enter area of school campus
                                         </div>
                                     </div>
@@ -1018,9 +1018,9 @@
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="schoolBuilt"
                                                 placeholder="Enter Built Up Area in square meters" type="text"
-                                                required="">
+                                                >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['schoolBuilt'].invalid && dataForm.controls['schoolBuilt'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['schoolBuilt'].invalid && (dataForm.controls['schoolBuilt'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1032,9 +1032,9 @@
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="groundArea"
                                                 placeholder="Enter Playground Area in square meters" type="text"
-                                                required="">
+                                                >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['groundArea'].invalid && dataForm.controls['groundArea'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['groundArea'].invalid && (dataForm.controls['groundArea'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1044,9 +1044,9 @@
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noBuilding"
                                                 placeholder="Enter Number of Buildings / Floors" type="numer"
-                                                required="">
+                                                >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['noBuilding'].invalid && dataForm.controls['noBuilding'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['noBuilding'].invalid && (dataForm.controls['noBuilding'].touched || submitted)">
                                             Enter number of buildings
                                         </div>
                                     </div>
@@ -1069,9 +1069,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noStaircase"
-                                                placeholder="Enter Number of staircases" type="number" required="">
+                                                placeholder="Enter Number of staircases" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['noStaircase'].invalid && dataForm.controls['noStaircase'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['noStaircase'].invalid && (dataForm.controls['noStaircase'].touched || submitted)">
                                             Enter number of staircases in school
                                         </div>
                                     </div>
@@ -1080,9 +1080,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="lift"
-                                                placeholder="Enter Number of lifts" type="number" required="">
+                                                placeholder="Enter Number of lifts" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['lift'].invalid && dataForm.controls['lift'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['lift'].invalid && (dataForm.controls['lift'].touched || submitted)">
                                             Enter number of lift in school
                                         </div>
                                     </div>
@@ -1103,7 +1103,7 @@
                                             <span class="input-group-text"><i class="fa fa-edit"></i></span>
                                             <textarea class="form-control" rows="13" formControlName="school_history"
                                                 placeholder="type school history here" type="text"
-                                                required="">
+                                                >
                                             </textarea>
                                         </div>
                                     </div>
@@ -1124,7 +1124,7 @@
                                             <span class="input-group-text"><i class="fa fa-edit"></i></span>
                                             <textarea class="form-control" rows="18" formControlName="school_plan"
                                                 placeholder="type school educative plan here" type="text"
-                                                required="">
+                                                >
                                             </textarea>
                                         </div>
                                     </div>
@@ -1145,9 +1145,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="classRoom"
-                                                placeholder="Enter no.of class rooms" type="number" required="">
+                                                placeholder="Enter no.of class rooms" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['classRoom'].invalid && dataForm.controls['classRoom'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['classRoom'].invalid && (dataForm.controls['classRoom'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1156,9 +1156,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="staffRoom"
-                                                placeholder="Enter no.of staff rooms" type="number" required="">
+                                                placeholder="Enter no.of staff rooms" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['staffRoom'].invalid && dataForm.controls['staffRoom'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['staffRoom'].invalid && (dataForm.controls['staffRoom'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1167,9 +1167,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="physicalLab"
-                                                placeholder="Enter no.of Physical Lab" type="number" required="">
+                                                placeholder="Enter no.of Physical Lab" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['physicalLab'].invalid && dataForm.controls['physicalLab'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['physicalLab'].invalid && (dataForm.controls['physicalLab'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1178,9 +1178,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="chemistryLab"
-                                                placeholder="Enter no.of Chemistry Lab" type="number" required="">
+                                                placeholder="Enter no.of Chemistry Lab" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['chemistryLab'].invalid && dataForm.controls['chemistryLab'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['chemistryLab'].invalid && (dataForm.controls['chemistryLab'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1191,9 +1191,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="biologylab"
-                                                placeholder="Enter no.of Biology Lab" type="number" required="">
+                                                placeholder="Enter no.of Biology Lab" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['biologylab'].invalid && dataForm.controls['biologylab'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['biologylab'].invalid && (dataForm.controls['biologylab'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1202,9 +1202,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="mathsLab"
-                                                placeholder="Enter no.of Mathematics lab" type="number" required="">
+                                                placeholder="Enter no.of Mathematics lab" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['mathsLab'].invalid && dataForm.controls['mathsLab'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['mathsLab'].invalid && (dataForm.controls['mathsLab'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1213,7 +1213,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="science"
-                                                placeholder="Enter no.of Home science lab" type="number" required="">
+                                                placeholder="Enter no.of Home science lab" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-2">
@@ -1221,9 +1221,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="library"
-                                                placeholder="Enter no.of Library" type="number" required="">
+                                                placeholder="Enter no.of Library" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['library'].invalid && dataForm.controls['library'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['library'].invalid && (dataForm.controls['library'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1234,9 +1234,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="auditorium"
-                                                placeholder="Enter no.of Auditorium" type="number" required="">
+                                                placeholder="Enter no.of Auditorium" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['auditorium'].invalid && dataForm.controls['auditorium'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['auditorium'].invalid && (dataForm.controls['auditorium'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1245,9 +1245,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="counselor"
-                                                placeholder="Enter no.of Counselors Room" type="number" required="">
+                                                placeholder="Enter no.of Counselors Room" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['counselor'].invalid && dataForm.controls['counselor'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['counselor'].invalid && (dataForm.controls['counselor'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1256,7 +1256,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="parlor"
-                                                placeholder="Enter no.of visitors parlor" type="number" required="">
+                                                placeholder="Enter no.of visitors parlor" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1264,7 +1264,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="prayer"
-                                                placeholder="Enter no.of Prayer Room" type="number" required="">
+                                                placeholder="Enter no.of Prayer Room" type="number" >
                                         </div>
                                     </div>
                                 </div>
@@ -1274,9 +1274,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="sick"
-                                                placeholder="Enter no.ofSick Room" type="number" required="">
+                                                placeholder="Enter no.ofSick Room" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['sick'].invalid && dataForm.controls['sick'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['sick'].invalid && (dataForm.controls['sick'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1285,7 +1285,7 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="canteen"
-                                                placeholder="Enter no.of Canteen" type="number" required="">
+                                                placeholder="Enter no.of Canteen" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1293,7 +1293,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="security"
-                                                placeholder="Enter no.of Security room" type="number" required="">
+                                                placeholder="Enter no.of Security room" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1302,7 +1302,7 @@
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="otherRoom"
                                                 placeholder="Enter no.of Halls / Others Rooms" type="number"
-                                                required="">
+                                                >
                                         </div>
                                     </div>
                                 </div>
@@ -1312,9 +1312,9 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="staffToilets"
-                                                placeholder="Enter no.of Staff Toilets" type="number" required="">
+                                                placeholder="Enter no.of Staff Toilets" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['staffToilets'].invalid && dataForm.controls['staffToilets'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['staffToilets'].invalid && (dataForm.controls['staffToilets'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1323,9 +1323,9 @@
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="studToilet"
-                                                placeholder="Enter no.of Student Toilets" type="number" required="">
+                                                placeholder="Enter no.of Student Toilets" type="number" >
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['studToilet'].invalid && dataForm.controls['studToilet'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['studToilet'].invalid && (dataForm.controls['studToilet'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1368,7 +1368,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['boundry'].invalid && dataForm.controls['boundry'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['boundry'].invalid && (dataForm.controls['boundry'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1395,7 +1395,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['cctv'].invalid && dataForm.controls['cctv'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['cctv'].invalid && (dataForm.controls['cctv'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1410,7 +1410,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['dataSave'].invalid && dataForm.controls['dataSave'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['dataSave'].invalid && (dataForm.controls['dataSave'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1421,7 +1421,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="camera"
-                                                placeholder="Enter no.of Camera" type="number" required="">
+                                                placeholder="Enter no.of Camera" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1435,7 +1435,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['maleGuard'].invalid && dataForm.controls['maleGuard'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['maleGuard'].invalid && (dataForm.controls['maleGuard'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1444,7 +1444,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noMaleGuard"
-                                                placeholder="Enter no.of Male Security" type="number" required="">
+                                                placeholder="Enter no.of Male Security" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1458,7 +1458,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['femaleGuard'].invalid && dataForm.controls['femaleGuard'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['femaleGuard'].invalid && (dataForm.controls['femaleGuard'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1469,7 +1469,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noFemaleGuard"
-                                                placeholder="Enter no.of Male Security" type="number" required="">
+                                                placeholder="Enter no.of Male Security" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1483,7 +1483,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['drinkWater'].invalid && dataForm.controls['drinkWater'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['drinkWater'].invalid && (dataForm.controls['drinkWater'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1498,7 +1498,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
-                                        <div class="text-danger" *ngIf="dataForm.controls['drainage'].invalid && dataForm.controls['drainage'].touched">
+                                        <div class="text-danger" *ngIf="dataForm.controls['drainage'].invalid && (dataForm.controls['drainage'].touched || submitted)">
                                             This is mandatory field
                                         </div>
                                     </div>
@@ -1531,7 +1531,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="nobus"
-                                                placeholder="Enter no.of buses" type="number" required="">
+                                                placeholder="Enter no.of buses" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1539,7 +1539,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="gps"
-                                                placeholder="Enter no.of GPS enabled Camera" type="number" required="">
+                                                placeholder="Enter no.of GPS enabled Camera" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1548,7 +1548,7 @@
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noladyAttend"
                                                 placeholder="Enter no.of Lady Attendance(if needed)" type="number"
-                                                required="">
+                                                >
                                         </div>
                                     </div>
                                 </div>
@@ -1558,7 +1558,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="firstAid"
-                                                placeholder="Enter no.of First Aid Kit" type="number" required="">
+                                                placeholder="Enter no.of First Aid Kit" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1566,7 +1566,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noDrinkWater"
-                                                placeholder="Enter no.of Drinking Water" type="number" required="">
+                                                placeholder="Enter no.of Drinking Water" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1575,7 +1575,7 @@
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="BusContract"
                                                 placeholder="Enter no.of buses sub-contracted" type="number"
-                                                required="">
+                                                >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1621,7 +1621,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                             <input class="form-control " formControlName="library_open"
-                                                placeholder="Enter Library open time" type="time" required="">
+                                                placeholder="Enter Library open time" type="time" >
 
                                         </div>
                                     </div>
@@ -1630,7 +1630,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                             <input class="form-control " formControlName="library_close"
-                                                placeholder="Enter Library Close Time" type="time" required="">
+                                                placeholder="Enter Library Close Time" type="time" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1638,7 +1638,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noBook"
-                                                placeholder="Enter no.of Books in library" type="number" required="">
+                                                placeholder="Enter no.of Books in library" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1646,7 +1646,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="magazine"
-                                                placeholder="Enter no.of Magazines in Library" type="text" required="">
+                                                placeholder="Enter no.of Magazines in Library" type="text" >
                                         </div>
                                     </div>
                                 </div>
@@ -1657,7 +1657,7 @@
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noNews"
                                                 placeholder="Enter no.of newspapers in library" type="number"
-                                                required="">
+                                                >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -1665,7 +1665,7 @@
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noEbook"
-                                                placeholder="Enter no.of Ebook" type="number" required="">
+                                                placeholder="Enter no.of Ebook" type="number" >
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
@@ -2959,7 +2959,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="step==20">
+                <div *ngIf="step == 20">
                     <div class="card">
                         <div class="card-header bg-primary text-white">{{step}} - Student Enrolment</div>
                         <div class="card-body">
@@ -3105,8 +3105,10 @@
                     Previous</button>
                     <div>
                         <div class="input-group">
-                            <input type="number" class="form-control form-control-sm" style="width:40px;"  #count >
-                            <button class="btn btn-info btn-sm" type="button" (click)="change(count.value)">Go</button>
+                            <div class="text text-secondary">Enter page number : </div>
+                            <input type="number" class="form-control form-control-sm" style="width:40px;"  [(ngModel)]="step" [ngModelOptions]="{standalone: true}">
+                            <div *ngIf="step >20" class="text text-danger">Twenty pages only!</div>
+                             <!--<button class="btn btn-info btn-sm" type="button" >Go</button> #count (click)="change(count.value)" -->
                         </div>
                     </div>
 

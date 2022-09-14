@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
       dob:[''],
       gender:[''],
       mobile:['',[Validators.minLength(10),Validators.maxLength(10)]],
-      email:['',Validators.required],
+      email:['',[Validators.required,Validators.email]],
       username:[''],
       password:['',Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}')],
       district:['']
@@ -33,11 +33,13 @@ export class RegisterComponent implements OnInit {
       alert("Field should not be Empty")
     }
     else{
+      console.log(this.registerForm.value);
+      
       this.subService.post(this.registerForm.value ,'/register').subscribe((arg:any) => {
         this.data=arg;
         console.log(arg);
         
-        if(this.data.status != null){
+        if(this.data.email == this.registerForm.controls['email'].value){
           alert("Registered Successfully Continue to login ");
           this.route.navigateByUrl('');
         }

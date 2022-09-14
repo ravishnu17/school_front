@@ -62,15 +62,15 @@ export class ProfileComponent implements OnInit {
     }
     else{
       this.subService.post(this.profileForm.value , '/profileUpdate').subscribe(arg =>{
-        this.data=arg;
+        
         Swal.fire({
           position:'top',
           text:'Your profile updated successfully',
           icon:'success'
         });
-      },error=>{
-        if(this.data.msg != null){
-          Swal.fire("",this.data.msg,"warning");
+      },error=>{        
+        if(error.error.detail != null){
+          Swal.fire("",error.error.detail,"warning");
         }
       });
 
@@ -115,9 +115,8 @@ export class ProfileComponent implements OnInit {
       if(result.isConfirmed){
         this.subService.remove().subscribe(arg=>{
           this.del =arg;
-          console.log(this.del);
         if(this.del.detail != null){
-          Swal.fire("Account Deleted successfully !","success");
+          Swal.fire('',"Account Deleted successfully !","success");
           this.route.navigate(['/']);
         }
         });
