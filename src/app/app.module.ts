@@ -35,7 +35,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
     NgxPaginationModule,
-    NgSelectModule
+    NgSelectModule,
+    
     
   ],
   providers: [],

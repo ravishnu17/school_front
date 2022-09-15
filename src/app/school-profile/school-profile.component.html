@@ -689,7 +689,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 mt-3">
-                                        <label for="register_validity">Period of validity of Registration</label>
+                                        <label for="register_validity">Period of validity of Registration (years)</label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                             <input type="text" class="form-control" formControlName="register_validity"
@@ -1515,7 +1515,7 @@
                             <div class="card-text">
                                 <div class="row">
                                     <div class="col-md-3 mt-3">
-                                        <label for="midday">Midday Meals Scheme</label>
+                                        <label for="midday">Midday Meals Scheme <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-check"></i></span>
                                             <select class="form-select form-select" name="midday" id="midday"
@@ -1525,22 +1525,25 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['midday'].invalid && (dataForm.controls['midday'].touched || submitted)">Select Midday scheme</div>
                                     </div>
                                     <div class="col-md-3 mt-3">
-                                        <label for="nobus">No. of buses owned by school</label>
+                                        <label for="nobus">No. of buses owned by school <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="nobus"
                                                 placeholder="Enter no.of buses" type="number" >
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['nobus'].invalid && (dataForm.controls['nobus'].touched || submitted)">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-3 mt-3">
-                                        <label for="gps">GPS enabled camera</label>
+                                        <label for="gps">No. of GPS enabled camera <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="gps"
                                                 placeholder="Enter no.of GPS enabled Camera" type="number" >
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['gps'].invalid && (dataForm.controls['gps'].touched || submitted)">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-3 mt-3">
                                         <label for="noladyAttend">No. of Lady Attendance(if needed)</label>
@@ -1554,32 +1557,33 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 mt-3">
-                                        <label for="firstAid">First Aid kit</label>
+                                        <label for="firstAid">No.of First Aid kit <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="firstAid"
                                                 placeholder="Enter no.of First Aid Kit" type="number" >
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['firstAid'].invalid && (dataForm.controls['firstAid'].touched || submitted)">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-3 mt-3">
-                                        <label for="noDrinkWater">Drinking Water</label>
+                                        <label for="noDrinkWater">No. of Drinking Water <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
                                             <input class="form-control " formControlName="noDrinkWater"
                                                 placeholder="Enter no.of Drinking Water" type="number" >
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['noDrinkWater'].invalid && (dataForm.controls['noDrinkWater'].touched || submitted)">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-3 mt-3">
-                                        <label for="BusContract">No. of buses sub-contracted</label>
+                                        <label for="BusContract">No.of buses sub-contracted <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
-                                            <input class="form-control " formControlName="BusContract"
-                                                placeholder="Enter no.of buses sub-contracted" type="number"
-                                                >
+                                            <input class="form-control " formControlName="BusContract" placeholder="Enter no.of buses sub-contracted" type="number">
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['BusContract'].invalid && (dataForm.controls['BusContract'].touched || submitted)">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-3 mt-3">
-                                        <label for="buspass">Eligibility for Govt free bus pass ?</label>
+                                        <label for="buspass">Eligibility for Govt free bus pass ? <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-check"></i></span>
                                             <select class="form-select form-select" name="buspass" id="buspass"
@@ -1589,11 +1593,12 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['buspass'].invalid && (dataForm.controls['buspass'].touched || submitted)">Select Eligibility</div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 mt-3">
-                                        <label for="freeTransport">Free transport Service offered by the School?</label>
+                                        <label for="freeTransport">Free transport Service offered by the School? <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-check"></i></span>
                                             <select class="form-select form-select" name="freeTransport"
@@ -1603,6 +1608,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['freeTransport'].invalid && (dataForm.controls['freeTransport'].touched || submitted)">Select transport service</div>
                                     </div>
                                 </div>
                             </div>
@@ -1617,21 +1623,22 @@
                             <div class="card-text">
                                 <div class="row">
                                     <div class="col-md-3 mt-3">
-                                        <label for="library_open">Library Open Time</label>
+                                        <label for="library_open">Library Open Time </label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                             <input class="form-control " formControlName="library_open"
                                                 placeholder="Enter Library open time" type="time" >
-
                                         </div>
+                                        <!-- <div class="text-danger" *ngIf="dataForm.controls['library_open'].invalid && (dataForm.controls['library_open'].touched || submitted)">This is mandatory field</div> -->
                                     </div>
                                     <div class="col-md-3 mt-3">
-                                        <label for="library_close">Library Close Time</label>
+                                        <label for="library_close">Library Close Time </label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                             <input class="form-control " formControlName="library_close"
                                                 placeholder="Enter Library Close Time" type="time" >
                                         </div>
+                                        <!-- <div class="text-danger" *ngIf="dataForm.controls['library_close'].invalid && (dataForm.controls['library_close'].touched || submitted)">This is mandatory field</div> -->
                                     </div>
                                     <div class="col-md-3 mt-3">
                                         <label for="noBook">Total no. of Books in Library </label>
@@ -1640,6 +1647,7 @@
                                             <input class="form-control " formControlName="noBook"
                                                 placeholder="Enter no.of Books in library" type="number" >
                                         </div>
+                                        <!-- <div class="text-danger" *ngIf="dataForm.controls['noBook'].invalid && (dataForm.controls['noBook'].touched || submitted)">This is mandatory field</div> -->
                                     </div>
                                     <div class="col-md-3 mt-3">
                                         <label for="magazine">Total no. of Magazines in Library</label>
@@ -1648,17 +1656,17 @@
                                             <input class="form-control " formControlName="magazine"
                                                 placeholder="Enter no.of Magazines in Library" type="text" >
                                         </div>
+                                        <!-- <div class="text-danger" *ngIf="dataForm.controls['magazine'].invalid && (dataForm.controls['magazine'].touched || submitted)">This is mandatory field</div> -->
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 mt-3">
-                                        <label for="noNews">Total no. of Dailies in Library (newspapers)</label>
+                                        <label for="noNews" class="text-nowrap">Total no. of Dailies in Library (newspapers) </label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
-                                            <input class="form-control " formControlName="noNews"
-                                                placeholder="Enter no.of newspapers in library" type="number"
-                                                >
+                                            <input class="form-control " formControlName="noNews" placeholder="Enter no.of newspapers in library" type="number">
                                         </div>
+                                        <!-- <div class="text-danger" *ngIf="dataForm.controls['noNews'].invalid && (dataForm.controls['noNews'].touched || submitted)">This is mandatory field</div> -->
                                     </div>
                                     <div class="col-md-3 mt-3">
                                         <label for="noEbook">Total no. of eBooks</label>
@@ -1669,7 +1677,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3 mt-3">
-                                        <label for="primaryLibrary">Separate Library for Primary Section </label>
+                                        <label for="primaryLibrary">Separate Library for Primary Section <span class="text text-danger bg-white"> *</span></label>
                                         <div class="input-group ">
                                             <span class="input-group-text"><i class="fas fa-check"></i></span>
                                             <select class="form-select form-select" name="primaryLibrary"
@@ -1679,6 +1687,7 @@
                                                 <option value=0>No</option>
                                             </select>
                                         </div>
+                                        <div class="text-danger" *ngIf="dataForm.controls['primaryLibrary'].invalid && (dataForm.controls['primaryLibrary'].touched || submitted)">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-3 mt-3">
                                         <label for="remedial">Is there provision for remedial teaching ?</label>
@@ -1695,8 +1704,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 mt-4">
-                                        <label for="noFemaleGuard">Multi-Media facilities available in the
-                                            school</label>
+                                        <label class="text-nowrap">Multi-Media facilities available in the school</label>
                                         <div class="form-check mt-3">
                                             <input class="form-check-input" type="checkbox" formControlName="tv"
                                                 value="Television" id="television">
@@ -3107,7 +3115,7 @@
                         <div class="input-group">
                             <div class="text text-secondary">Enter page number : </div>
                             <input type="number" class="form-control form-control-sm" style="width:40px;"  [(ngModel)]="step" [ngModelOptions]="{standalone: true}">
-                            <div *ngIf="step >20" class="text text-danger">Twenty pages only!</div>
+                            <div *ngIf="step >20" class="text text-danger">Twenty pages only! {{steps()}}</div>
                              <!--<button class="btn btn-info btn-sm" type="button" >Go</button> #count (click)="change(count.value)" -->
                         </div>
                     </div>

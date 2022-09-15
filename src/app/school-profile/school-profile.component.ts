@@ -174,22 +174,22 @@ export class SchoolProfileComponent implements OnInit {
       noFemaleGuard:[],
       drinkWater:[,[Validators.required]],
       drainage:[,[Validators.required]],
-      midday:[],
-      nobus:[],
-      gps:[],
+      midday:[,[Validators.required]],
+      nobus:[,[Validators.required]],
+      gps:[,[Validators.required]],
       noladyAttend:[],
-      firstAid:[],
-      noDrinkWater:[],
-      BusContract:[],
-      buspass:[],
-      freeTransport:[],
+      firstAid:[,[Validators.required]],
+      noDrinkWater:[,[Validators.required]],
+      BusContract:[,[Validators.required]],
+      buspass:[,[Validators.required]],
+      freeTransport:[,[Validators.required]],
       library_open:[],
       library_close:[],
       noBook:[],
       magazine:[],
       noNews:[],
       noEbook:[],
-      primaryLibrary:[],
+      primaryLibrary:[,[Validators.required]],
       remedial:[],
       tv:[],
       digitalboard:[],
@@ -533,5 +533,8 @@ export class SchoolProfileComponent implements OnInit {
   //   console.log(cnt,this.step);
     
   // }
+  steps(){
+    this.step=20;
+  }
 
 }
