@@ -5,3 +5,26 @@
     <input type="number" [(ngModel)]="age">
     {{age}}{{name}}
 </div>
+
+<div>
+    <form [formGroup]="form">
+        <div class="card mt-4 p-5">
+            <div class="card-header bg-primary ">Check</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <div formGroupName="personal">
+                            <input type="text" formControlName="name" class="form-control">
+                            <input type="text" formControlName="age" class="form-control">
+                        </div>
+                        <div formGroupName="education">
+                            
+                        <input type="text" formControlName="mark10" class="form-control">
+                        </div>
+                        <button clas="btn btn-primary" (click)="submit()">submit</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

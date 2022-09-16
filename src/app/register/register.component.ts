@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { SubserviceService } from '../subservice.service';
 
 @Component({
@@ -40,7 +41,14 @@ export class RegisterComponent implements OnInit {
         console.log(arg);
         
         if(this.data.email == this.registerForm.controls['email'].value){
-          alert("Registered Successfully Continue to login ");
+          Swal.fire({
+            title:"Registered successfully !",
+            text:'Continue to login',
+            icon:'success',
+            timer:1000,
+            position:'center',
+            showConfirmButton:false,
+          });
           this.route.navigateByUrl('');
         }
       },error=>{

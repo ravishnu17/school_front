@@ -1789,13 +1789,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Principal/Head Master</label>
+                                        <label>Principal/Head Master <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="ppm" type="number">
+                                        <div *ngIf="dataForm.controls['ppm'].invalid && (dataForm.controls['ppm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="ppf" type="number">
+                                        <div *ngIf="dataForm.controls['ppf'].invalid && (dataForm.controls['ppf'].touched || submitted)"  class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -1818,13 +1820,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Vice Principal/Asst HM</label>
+                                        <label>Vice Principal/Asst. HM <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pvm" type="number">
+                                        <div *ngIf="dataForm.controls['pvm'].invalid && (dataForm.controls['pvm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pvf" type="number">
+                                        <div *ngIf="dataForm.controls['pvf'].invalid && (dataForm.controls['pvf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -1847,13 +1851,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>PGTs (Post Graduate Teachers)</label>
+                                        <label>PGTs (Post Graduate Teachers) <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="ppgtm" type="number">
+                                        <div *ngIf="dataForm.controls['ppgtm'].invalid && (dataForm.controls['ppgtm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="ppgtf" type="number">
+                                        <div *ngIf="dataForm.controls['ppgtf'].invalid && (dataForm.controls['ppgtf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -1876,13 +1882,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>TGTs (Trained Graduate Teachers)</label>
+                                        <label>TGTs (Trained Graduate Teachers) <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="ptgtm" type="number">
+                                        <div *ngIf="dataForm.controls['ptgtm'].invalid && (dataForm.controls['ptgtm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="ptgtf" type="number">
+                                        <div *ngIf="dataForm.controls['ptgtf'].invalid && (dataForm.controls['ptgtf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -1905,13 +1913,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>PRTs (Primary Teachers)</label>
+                                        <label>PRTs (Primary Teachers) <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pprtm" type="number">
+                                        <div *ngIf="dataForm.controls['pprtm'].invalid && (dataForm.controls['pprtm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pprtf" type="number">
+                                        <div *ngIf="dataForm.controls['pprtf'].invalid && (dataForm.controls['pprtf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -1934,13 +1944,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>NTTs (Nursery Trained Teachers)</label>
+                                        <label>NTTs (Nursery Trained Teachers <span class="text-danger bg-white"> *</span>)</label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pnttm" type="number">
+                                        <div *ngIf="dataForm.controls['pnttm'].invalid && (dataForm.controls['pnttm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pnttf" type="number">
+                                        <div *ngIf="dataForm.controls['pnttf'].invalid && (dataForm.controls['pnttf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -1963,13 +1975,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Untrained Teachers</label>
+                                        <label>Untrained Teachers <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="putm" type="number">
+                                        <div *ngIf="dataForm.controls['putm'].invalid && (dataForm.controls['putm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="putf" type="number">
+                                        <div *ngIf="dataForm.controls['putf'].invalid && (dataForm.controls['putf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -1992,13 +2006,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Librarian</label>
+                                        <label>Librarian <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="plm" type="number">
+                                        <div *ngIf="dataForm.controls['plm'].invalid && (dataForm.controls['plm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="plf" type="number">
+                                        <div *ngIf="dataForm.controls['plf'].invalid && (dataForm.controls['plf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -2021,13 +2037,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Arts/Dance/Music Teachers</label>
+                                        <label>Arts/Dance/Music Teachers <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pmtm" type="number">
+                                        <div *ngIf="dataForm.controls['pmtm'].invalid && (dataForm.controls['pmtm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pmtf" type="number">
+                                        <div *ngIf="dataForm.controls['pmtf'].invalid && (dataForm.controls['pmtf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -2050,13 +2068,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Counsellors</label>
+                                        <label>Counsellors <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pctm" type="number">
+                                        <div *ngIf="dataForm.controls['pctm'].invalid && (dataForm.controls['pctm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pctf" type="number">
+                                        <div *ngIf="dataForm.controls['pctf'].invalid && (dataForm.controls['pctf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -2079,13 +2099,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Computer Literacy</label>
+                                        <label>Computer Literacy <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pcltm" type="number">
+                                        <div *ngIf="dataForm.controls['pcltm'].invalid && (dataForm.controls['pcltm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pcltf" type="number">
+                                        <div *ngIf="dataForm.controls['pcltf'].invalid && (dataForm.controls['pcltf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -2108,13 +2130,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Faith Ministers</label>
+                                        <label>Faith Ministers <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pfmm" type="number">
+                                        <div *ngIf="dataForm.controls['pfmm'].invalid && (dataForm.controls['pfmm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pfmf" type="number">
+                                        <div *ngIf="dataForm.controls['pfmf'].invalid && (dataForm.controls['pfmf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -2137,13 +2161,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>Nurse</label>
+                                        <label>Nurse <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pnm" type="number">
+                                        <div *ngIf="dataForm.controls['pnm'].invalid && (dataForm.controls['pnm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pnf" type="number">
+                                        <div *ngIf="dataForm.controls['pnf'].invalid && (dataForm.controls['pnf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
@@ -2166,13 +2192,15 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-3 mt-3">
-                                        <label>P.T Teachers</label>
+                                        <label>P.T Teachers <span class="text-danger bg-white"> *</span></label>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pptm" type="number">
+                                        <div *ngIf="dataForm.controls['pptm'].invalid && (dataForm.controls['pptm'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1">
                                         <input class="form-control" formControlName="pptf" type="number">
+                                        <div *ngIf="dataForm.controls['pptf'].invalid && (dataForm.controls['pptf'].touched || submitted)" class="text-danger">This is mandatory field</div>
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-1">
