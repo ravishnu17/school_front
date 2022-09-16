@@ -1,7 +1,7 @@
-<div class="container p-3 mt-2" style="margin-left:200px;">
+<div class="p-3 mt-2" style="margin-left:200px;">
     <div class="card p-4">
         <form [formGroup]="dataForm" (submit)="submit()">
-                <h4 class="text-primary" style="text-align:center;">Edustar School Profile</h4>
+                <h4 class="text-primary" style="text-align:center;font-size:large;font-family:'Times New Roman', Times, serif">Edustar School Profile</h4>
             <div *ngFor="let count of page | paginate:{itemsPerPage:1,currentPage: step}">
                 <div *ngIf="step<=1">
                     <div class="card">
