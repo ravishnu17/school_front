@@ -13,6 +13,6 @@ jobs:
       - name: deploy to heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: ${{secrets.HEROKU_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP}}
-          heroku_email: ${{secrets.HEROKU_MAIL}}
+          heroku_api_key: 4e981306-f223-41a4-9c19-d3c4b6131a50
+          heroku_app_name: school-design-angular
+          heroku_email: ravinshnu@dbcyelagiri.edu.in
