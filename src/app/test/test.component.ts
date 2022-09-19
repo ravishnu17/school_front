@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { SubserviceService } from '../subservice.service';
+import {MatSidenav} from '@angular/material/sidenav';
+import {BreakpointObserver}from '@angular/cdk/layout'
 
 @Component({
   selector: 'app-test',
@@ -9,6 +11,7 @@ import { SubserviceService } from '../subservice.service';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+  @ViewChild(MatSidenav) sidenav!:MatSidenav;
   age=20;
   name='ravi';
   dropdownList :any = [];
@@ -16,7 +19,8 @@ export class TestComponent implements OnInit {
   dropdownSettings : IDropdownSettings = {};
   select = [{id:1 , data:'Ravi'}];
   form!:FormGroup;
-  constructor(private fb:FormBuilder , private subservice:SubserviceService) { }
+  
+  constructor(private observer:BreakpointObserver,private fb:FormBuilder , private subservice:SubserviceService) { }
 
   ngOnInit(): void {
     this.dropdownSettings={
@@ -50,5 +54,16 @@ export class TestComponent implements OnInit {
       
     });
     
+  }
+  ngAfterViewInit(){
+    this.observer.observe(['(max-width:900px)']).subscribe((res)=>{
+      if(res.matches){
+        this.sidenav.mode = 'over';
+        this.sidenav.close();
+      }else{
+        this.sidenav.mode ='side';
+        this.sidenav.open();
+      }
+    });
   }
 }

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { SubserviceService } from '../subservice.service';
+import {MatSidenav} from '@angular/material/sidenav';
+import {BreakpointObserver}from '@angular/cdk/layout'
 
 @Component({
   selector: 'app-home',
@@ -9,11 +11,12 @@ import { SubserviceService } from '../subservice.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild(MatSidenav) sidenav!:MatSidenav;
   data: any;
   type: any;
   name : any;
   page:any = 'Dashboard';
-  constructor(private subservice:SubserviceService , private route:Router ,private act :ActivatedRoute) { }
+  constructor(private observer:BreakpointObserver ,private subservice:SubserviceService , private route:Router ,private act :ActivatedRoute) { }
  
   ngOnInit(): void {
     this.subservice.get('/get').subscribe(
@@ -38,6 +41,17 @@ export class HomeComponent implements OnInit {
     }
     this.page=page;
     this.route.navigate([path]);
+  }
+  ngAfterViewInit(){
+    this.observer.observe(['(max-width:900px)']).subscribe((res)=>{
+      if(res.matches){
+        this.sidenav.mode = 'over';
+        this.sidenav.close();
+      }else{
+        this.sidenav.mode ='side';
+        this.sidenav.open();
+      }
+    });
   }
 
 }

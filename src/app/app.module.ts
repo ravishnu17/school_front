@@ -15,6 +15,13 @@ import { TestComponent } from './test/test.component';
 import { SchoolProfileComponent } from './school-profile/school-profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -36,6 +43,13 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgMultiSelectDropDownModule.forRoot(),
     NgxPaginationModule,
     NgSelectModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
     
     
   ],

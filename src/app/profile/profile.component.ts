@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
       name:[''],
       dob:[''],
       gender:[''],
-      mobile:[''],
+      mobile:['',[Validators.pattern("^[0-9]*$")]],
       email:[''],
       username:[''],
       district:[''],

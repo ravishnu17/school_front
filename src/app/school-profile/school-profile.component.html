@@ -1,4 +1,4 @@
-<div class="p-3 mt-2" style="margin-left:200px;">
+<div class="p-3 mt-2">
     <div class="card p-4">
         <form [formGroup]="dataForm" (submit)="submit()">
                 <h4 class="text-primary" style="text-align:center;font-size:large;font-family:'Times New Roman', Times, serif">Edustar School Profile</h4>
@@ -3008,7 +3008,7 @@
                                             <table formArrayName="shift" class="table" style="white-space: nowrap;">
                                                     <thead class="thead">
                                                         <tr class="text-center">
-                                                            <th >Shift/Batch</th>
+                                                            <th style="white-space: nowrap;">Shift/Batch</th>
                                                             <th colspan="2">Season</th>
                                                             <th colspan="2">Time</th>
                                                             <th >Remark</th>
@@ -3017,9 +3017,9 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr *ngFor="let shift of Shift().controls;let n=index" formGroupName="{{n}}">
-                                                            <td style="padding:20px">
+                                                            <td style="padding:20px;">
                                                                 <label for="">Shift/Batch</label>
-                                                                <div class="input-group">
+                                                                <div class="input-group" style="width:100px" >
                                                                     <span class="input-group-text"><i class="fas fa-users"></i></span>
                                                                     <input type="text" class="form-control" placeholder="Enter shift Name" formControlName="shiftName">
                                                                 </div>
@@ -3088,7 +3088,7 @@
                                                     <tr *ngFor="let class of Schoolclass().controls;let j=index;" formGroupName="{{j}}">
                                                         <td  style="padding:20px">
                                                             <label for="">Enter Class</label>
-                                                            <div class="input-group">
+                                                            <div class="input-group" style="width:100px">
                                                                 <span class="input-group-text"><i class="fas fa-chalkboard"></i></span>
                                                                 <input type="text" class="form-control" placeholder="Enter Class " formControlName="className">
                                                             </div>

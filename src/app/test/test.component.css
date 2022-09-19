@@ -1,0 +1,37 @@
+mat-toolbar{
+    background-color: blue;
+    color: white;
+}
+mat-sidenav{
+    margin: 5px;
+    width: 200px;
+    background: blue;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+}
+.content{
+    height: calc(100vh - 97px);
+    margin: 16px;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+
+    font-size: 2rem;
+    color: lightgray;
+
+    border-radius: 10px;
+}
+mat-sidenav-container{
+    height: calc(100vh - 65px);
+    background-color: aliceblue;
+}
+
+.menu-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 1rem;
+    padding: 10px;
+}

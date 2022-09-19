@@ -1,4 +1,4 @@
-<header class="sticky-top">
+<!-- <header class="sticky-top">
   <div class="d-flex flex-row" style="background-color:rgb(234, 131, 6); color:white; font-weight:bold;">
     <img style="margin-left:10px ;" src="../assets/Media/Edustar_logo_white.png" width="100" class="d-inline-block align-top"
       alt="">
@@ -15,5 +15,43 @@
   </div>
   <a (click)="path('','')">Logout</a>
 </div>
-
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+<mat-toolbar style="background-color:rgb(234, 131, 6)">
+  <button mat-button (click)="sidenav.toggle();">
+      <mat-icon>menu</mat-icon>
+  </button>
+  <img style="margin-left:10px ;" src="../assets/Media/Edustar_logo_white.png" width="100" class="d-inline-block align-top"
+      alt="">
+  <div class="align-self-center" style="font-family:'Times New Roman', Times, serif ;font-size:18px;margin-left: 15px;">
+    {{page}}
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened #sidenav>
+      <h2 style="text-align:center ;background-color:blanchedalmond;color: black;border-radius: 25px;">Menu</h2>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" (click)="path('/main','DashBoard')">
+          <mat-icon >home</mat-icon>
+          <span> Home</span>
+      </button>
+      <button mat-button class="menu-button" (click)="path('main/profile','User Profile')">
+          <mat-icon>person</mat-icon>
+          <span> Profile</span>
+      </button>
+      <div *ngIf="type == 1">
+        <button mat-button class="menu-button" (click)="path('main/SchoolProfile','School Profile')">
+            <mat-icon>school</mat-icon>
+            <span> School profile</span>
+        </button>
+      </div>  
+      <button mat-button class="menu-button" (click)="path('','')">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+      </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="content">
+          <router-outlet></router-outlet>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
