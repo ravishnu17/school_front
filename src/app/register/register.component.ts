@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
           this.route.navigateByUrl('');
         }
       },error=>{
-        this.error = error.error.msg
+        this.error = error.error.msg;
       })
     }
     
