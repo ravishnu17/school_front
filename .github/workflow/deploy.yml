@@ -1,4 +1,4 @@
-name: deploy angular
+name: deploy in heroku
 
 on: [push, pull_request]
 
