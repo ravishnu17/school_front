@@ -4,7 +4,7 @@
       <div class="col col-xl-7">
         <div class="card" style="border-radius: 25px;">
           <div class="row row d-flex justify-content-center align-items-center ">
-            <div class="col-md-7 col-lg-4 col-xl-6">
+            <div class="col-md-7 col-lg-4 col-xl-6 p-3">
               <img src="/assets/Media/login_side_img.png" class="img-fluid" alt="Sample image" >
             </div>
             <div class="col-md-7 col-lg-9 col-xl-6 d-flex align-items-center">
@@ -22,7 +22,7 @@
                     <label class="form-label mt-3" for="username">User Name</label>
                     <div class="input-group">
                       <span class="input-group-text"><i class="bi bi-person"></i></span>
-                      <input type="text" id="username" formControlName="username"
+                      <input type="text" placeholder="Enter username" id="username" formControlName="username"
                         class="form-control form-control-md" autocomplete="off" />
                     </div>
                     <div *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched"
@@ -32,7 +32,7 @@
                     <label class="form-label mt-4" for="password">Password</label>
                     <div class="input-group ">
                       <span class="input-group-text"><i class="bi bi-key"></i></span>
-                      <input type="password" id="password" formControlName="password"
+                      <input type="password" placeholder="Enter password" id="password" formControlName="password"
                         class="form-control form-control-md" />
                     </div>
                     <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
