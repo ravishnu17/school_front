@@ -43,20 +43,23 @@ export class LoginComponent implements OnInit {
     this.step=0;
   }
 
+//get pin method
   check(){    
     this.subService.post({"username":this.loginForm.controls['username'].value},'/pinGenerate').subscribe(data=>{
       this.data = data;      
-      if (this.data.pin!=null){
+      
+      if (this.data[0].pin!=null){
         this.error=null;
-        alert('Your pin is: '+this.data.pin)
+        alert('Your pin is: '+this.data[0].pin)
       }
     },error=>{
       this.error = error.error.detail;
     });
   }
 
+//forgot password method
   forgotPwd(){
-    if (this.loginForm.controls['username'].invalid && this.loginForm.controls['pin'].invalid && this.loginForm.controls['pwd'].invalid) {
+    if (this.loginForm.controls['username'].value ==null || this.loginForm.controls['pin'].value==null || this.loginForm.controls['pwd'].value ==null) {
       alert("Field should not be Empty");
     }
     else{
@@ -82,11 +85,15 @@ export class LoginComponent implements OnInit {
     }
   }
 
+//login method
   submit() {
 
     if (this.loginForm.invalid) {      
-      this.error="Enter your data";
+      this.error="Enter login credentials";
     }
+    else if(this.loginForm.controls['password'].value == ''){
+      this.error="Enter login credentials";
+    } 
     else {
         // const login = JSON.parse(JSON.stringify(this.loginForm.value))
         // console.log("login data",this.loginForm.value)
@@ -118,6 +125,7 @@ export class LoginComponent implements OnInit {
           }
       },error =>{
         this.error = error.error.detail;
+        
       });      
     }
   }

@@ -1,107 +1,153 @@
-<form [formGroup]="registerForm" (ngSubmit)="submit()" >
-    <div class="container-fluid ">
-        <div class="row mt-3">
-            <div class="col-1"></div>
-            <div class="col-md-3 bg-white " >
-                <img class="d-flex " src="../assets/Media/login_side_img.png" alt="DBSTAR">
-              </div>
-            <div class="col-md-6  bg-white" >
+<section class="py-1">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 25px;">
+                    <div class="row row d-flex justify-content-center align-items-center ">
+                        <div class="col-md-7 col-lg-4 col-xl-5 p-3">
+                            <img src="/assets/Media/login_side_img.png" class="img" alt="DB star image">
+                        </div>
+                        <div class="col-md-7 col-lg-9 col-xl-6 d-flex align-items-center">
+                            <div class="card-body text-black">
+                                <form [formGroup]="registerForm" (submit)="submit()">
+                                    <div class="d-flex justify-content-center align-items-center pb-1">
+                                        <img src="/assets/Media/dbstar_logo.png" class="img-fluid" alt="Sample image">
+                                    </div>
+                                    <div *ngIf="error!=null" class="alert alert-danger">{{error}}</div>
 
-                <img class='rounded mx-auto d-block' src="../assets/Media/dbstar_logo.png" width="200" alt="DBSTAR">
-                <h4 style="font-family:'Times New Roman', Times, serif ;font-weight:bold;color:blue;text-align: center;">User Registration</h4>
-                <div *ngIf="error!=null" class="alert alert-danger">{{error}}</div>
-                <div class="row">
-                    <div class="col">
-                        <div class="input-group mt-3 ">
-                            <span class="input-group-text"><i class="bi-person-circle"></i></span>
-                            <input class="form-control " formControlName="name" placeholder="Full Name" type="text" required="">
-                        </div>
-                        <div *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched" class="text text-danger">
-                            Full Name field is required
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="input-group mt-3 ">
-                            <span class="input-group-text"><i class="bi-calendar-event"></i></span>
-                            <input class="form-control " formControlName="dob" placeholder="Date of Birth" type="date" required="">
-                        </div>
-                        <div *ngIf="registerForm.controls['dob'].invalid && registerForm.controls['dob'].touched" class="text text-danger">
-                            <div *ngIf="registerForm.controls['dob'].invalid"></div>
-                            Date of Birth field is required
-                        </div>
-                    </div>
-                </div>              
+                                    <h2 class=" text-primary"
+                                        style="letter-spacing: 1px;text-align: center;font-weight: bold;font-family: 'Times New Roman', Times, serif;">
+                                        User Registration</h2>
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="form-label">Fullname</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi-person-circle"></i></span>
+                                                <input class="form-control form-control-md " formControlName="name"
+                                                    placeholder="Full Name" type="text" required="">
+                                            </div>
+                                            <div *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].touched || submitted)"
+                                                class="text text-danger">
+                                                Full Name field is required
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label">Date of Bith</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi-calendar-event"></i></span>
+                                                <input class="form-control " formControlName="dob"
+                                                    placeholder="Date of Birth" type="date" required="">
+                                            </div>
+                                            <div *ngIf="registerForm.controls['dob'].invalid && (registerForm.controls['dob'].touched || submitted)"
+                                                class="text text-danger">
+                                                <div *ngIf="registerForm.controls['dob'].invalid"></div>
+                                                Date of Birth field is required
+                                            </div>
+                                        </div>
+                                    </div>
 
-                <div class="row">
-                    <div class="col">
-                        <div class="input-group mt-3">
-                            <span class="input-group-text"><i class="bi-phone-fill"></i></span>
-                            <input class="form-control " id="mobile" formControlName="mobile" placeholder="mobile number" type="text" required>
-                        </div>
-                        <div *ngIf="registerForm.controls['mobile'].invalid && registerForm.controls['mobile'].touched" class="text text-danger">
-                           Enter valid Mobile Number
-                        </div>
-                        <!-- <div *ngIf="registerForm.controls['mobile'].errors ?.['minlength']">Enter valid mobile number</div> -->
-                    </div>
-                    <div class="col">
-                        <div class="input-group mt-3">
-                            <span class="input-group-text"><i class="bi-envelope-fill"></i></span>
-                            <input class="form-control " formControlName="email" placeholder="Email" type="mail" [email]="true" required="">
-                        </div>
-                        <div *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched" class="text text-danger">
-                            Enter valid mail id
-                        </div> 
-                    </div>
-                </div>
+                                    <div class="row mt-2">
+                                        <div class="col">
+                                            <label class="form-label ">Mobile No.</label>
+                                            <div class="input-group ">
+                                                <span class="input-group-text"><i class="bi-phone-fill"></i></span>
+                                                <input class="form-control " id="mobile" formControlName="mobile"
+                                                    placeholder="mobile number" type="text" required>
+                                            </div>
+                                            <div *ngIf="registerForm.controls['mobile'].invalid && (registerForm.controls['mobile'].touched || submitted)"
+                                                class="text text-danger">
+                                                Enter valid Mobile Number
+                                            </div>
+                                            <!-- <div *ngIf="registerForm.controls['mobile'].errors ?.['minlength']">Enter valid mobile number</div> -->
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label">Email ID</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi-envelope-fill"></i></span>
+                                                <input class="form-control " formControlName="email" placeholder="Email"
+                                                    type="mail" [email]="true" required="">
+                                            </div>
+                                            <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].touched || submitted)"
+                                                class="text text-danger">
+                                                Enter valid mail id
+                                            </div>
+                                        </div>
+                                    </div>
 
-                <div class="row">
-                    <div class="col">
-                        <div class="input-group mt-3 ">
-                            <span class="input-group-text"><i class="bi-gender-ambiguous"></i></span>
-                            <div class="form-check form-check-inline" style="margin-left:12px;">
-                                <input class="form-check-input" type="radio" formControlName="gender" id="male" value="male" required="">
-                                <label class="form-check-label" for="male">Male</label>
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <label class="form-label">Gender</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i
+                                                        class="bi-gender-ambiguous"></i>
+                                                <div class="form-check form-check-inline" style="margin-left:15px;">
+                                                    <input class="form-check-input " type="radio"
+                                                        formControlName="gender" id="male" value="male" required="">
+                                                    <label class="form-check-label" for="male">Male</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio"
+                                                        formControlName="gender" id="female" value="female" required="">
+                                                    <label class="form-check-label" for="female">Female</label>
+                                                </div>
+                                            </span>
+                                            </div>
+                                            <div *ngIf="registerForm.controls['gender'].invalid && (registerForm.controls['gender'].touched || submitted)"
+                                                class="text text-danger">
+                                                Gender field is required
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                        <div class="col-12">
+                                            <label class="form-label">Username</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="bi-person-fill"></i></span>
+                                                <input class="form-control " formControlName="username"
+                                                    placeholder="Username" type="text" required="">
+                                            </div>
+                                            <div *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].touched || submitted)"
+                                                class="text text-danger">
+                                                User Name field is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="form-label mt-2">Password</label>
+                                    <div class="input-group ">
+                                        <span class="input-group-text"><i class="bi-lock-fill"></i></span>
+                                        <input class="form-control " formControlName="password" placeholder="password"
+                                            type="password" required="">
+                                    </div>
+                                    <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].touched || submitted)"
+                                        class="text text-danger">
+                                        <h4 style="margin-bottom:-1px ;">Password must:</h4>
+                                        <ul>
+                                            <li>minimum of (eight)8 characters</li>
+                                            <li>Contain atleast one uppercase letter (A-Z),lowercase (a-z) and<br> special characters (~@$#)</li>
+                                        </ul>
+                                    </div>
+                                    <label class="form-label mt-3">District</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi-cursor-fill"></i></span>
+                                        <input class="form-control " formControlName="district" placeholder="District"
+                                            type="text" required="">
+                                    </div>
+                                    <div style="text-align:margin-left;"
+                                        *ngIf="registerForm.controls['district'].invalid && (registerForm.controls['district'].touched || submitted)"
+                                        class="text text-danger">
+                                        District field is required
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn-lg btn-primary mt-3 mb-2 ">Register</button>
+                                        <p class=" mt-2">Have already an Account? <a routerLink="/"
+                                            style="color:blue;">Login here</a></p>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" formControlName="gender" id="female" value="female" required="">
-                                <label class="form-check-label" for="female">Female</label>
-                            </div>
-                        </div>
-                        <div *ngIf="registerForm.controls['gender'].invalid && registerForm.controls['gender'].touched" class="text text-danger">
-                            Gender field is required
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="input-group mt-3" style="margin-top: 25px;">
-                            <span class="input-group-text"><i class="bi-person-fill"></i></span>
-                            <input class="form-control " formControlName="username" placeholder="Username" type="text" required="">
-                        </div>
-                        <div *ngIf="registerForm.controls['username'].invalid && registerForm.controls['username'].touched" class="text text-danger">
-                            User Name field is required
                         </div>
                     </div>
                 </div>
-
-                <div class="input-group mt-3" style="margin-top: 25px;">
-                    <span class="input-group-text"><i class="bi-lock-fill"></i></span>
-                    <input class="form-control " formControlName="password" placeholder="password" type="password" required="">
-                </div>
-                <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched" class="text text-danger">
-                    password field should contain <br>- at least one uppercase - One special characters <br>- One number - Minimum six characters
-                </div>                
-
-                <div class="input-group mt-3">
-                    <span class="input-group-text"><i class="bi-cursor-fill"></i></span>
-                    <input class="form-control " formControlName="district" placeholder="District" type="text" required="">
-                </div> 
-                <div style="text-align:margin-left;" *ngIf="registerForm.controls['district'].invalid && registerForm.controls['district'].touched" class="text text-danger">
-                    District field is required
-                </div>
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success mt-3 mb-3" [disabled]="registerForm.invalid">Register</button>
-                        <button type="button" style="margin-left:20px ;" class="btn btn-success mt-3 mb-3" routerLink="/">Login</button>     
-                    </div>
-                </div>
+            </div>
         </div>
     </div>
-</form>
+</section>

@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   registerForm!:FormGroup;
   data : any;
   error:any;
+  submitted=false
   constructor(private fb1:FormBuilder,private subService:SubserviceService,private route:Router) { }
   
   ngOnInit(): void {
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit {
   }
   submit(){
     if(this.registerForm.invalid){
-      alert("Field should not be Empty")
+      this.submitted = true
     }
     else{
       console.log(this.registerForm.value);

@@ -25,6 +25,7 @@ export class GeneralInfoComponent implements OnInit {
     }
 
     this.service.get('/getUser').subscribe(data=>{
+      console.log(data);
       
       for (let val of data){
         if(val.role ==1){
