@@ -16,8 +16,7 @@ export class SubserviceService {
     return this.mainService.get(path)
   }
 
-  remove(){
-    const path = "/delete";
+  remove(path:any){
     return  this.mainService.delete(path);
   }
 

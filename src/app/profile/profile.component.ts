@@ -113,7 +113,7 @@ export class ProfileComponent implements OnInit {
       position:"top",
     }).then((result)=>{
       if(result.isConfirmed){
-        this.subService.remove().subscribe(arg=>{
+        this.subService.remove('/delete').subscribe(arg=>{
           this.del =arg;
         if(this.del.detail != null){
           Swal.fire('',"Account Deleted successfully !","success");

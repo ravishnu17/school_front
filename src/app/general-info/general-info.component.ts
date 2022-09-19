@@ -25,7 +25,6 @@ export class GeneralInfoComponent implements OnInit {
     }
 
     this.service.get('/getUser').subscribe(data=>{
-      console.log(data);
       
       for (let val of data){
         if(val.role ==1){
@@ -69,5 +68,25 @@ export class GeneralInfoComponent implements OnInit {
     this.route.navigate(['']);
   }
   
+  delete(id:any,name:any){
+    console.log(id);
+    Swal.fire({
+      title:'Click ok to confirm',
+      text:'Are you sure to delete the user '+name,
+      icon:'question',
+      showCancelButton:true,
+      cancelButtonColor:'green',
+      confirmButtonColor:'red'
+      
+    }).then((result) =>{
+      if(result.isConfirmed){
+        this.service.remove('/deleteID/'+id).subscribe(data=>{
+          Swal.fire("Deleted successfully","","success");
+          location.reload();
+        });
+      }
+    });
+
+    }
 
 }
