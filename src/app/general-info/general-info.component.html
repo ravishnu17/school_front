@@ -44,7 +44,7 @@
                         <div class="table-responsive" style="height:200px ;overflow:auto ;">
                         <table class="table table-bordered text-center">
                             <thead>
-                            <tr style="position:sticky ;top:0;background-color:blue ;color:white ;">
+                            <tr style="position:sticky ;top:0;background-color:blue ;color:white ;font-weight: bold;">
                                 <th>S.No</th>
                                 <th>User ID</th>
                                 <th>Name</th>
@@ -53,7 +53,7 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                            <tbody>
+                            <tbody style="font-size:15px ;">
                             <tr *ngFor="let list of data;let i=index">
                                 <td>{{i+1}}</td>
                                 <td>{{list.id}}</td>

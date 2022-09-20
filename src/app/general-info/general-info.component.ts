@@ -72,7 +72,7 @@ export class GeneralInfoComponent implements OnInit {
     console.log(id);
     Swal.fire({
       title:'Click ok to confirm',
-      text:'Are you sure to delete the user '+name,
+      text:'Are you sure to delete the user -'+name,
       icon:'question',
       showCancelButton:true,
       cancelButtonColor:'green',
