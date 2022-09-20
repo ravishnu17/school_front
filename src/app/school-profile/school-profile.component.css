@@ -19,4 +19,9 @@ textarea{
 
 label{
   color: black;
+  font-size: medium;
+}
+
+.card-header{
+  font-size: large;
 }

@@ -18,21 +18,10 @@ mat-sidenav{
   border-radius: 10px;
   padding: 16px;
 }
-/* .content{
-  height: calc(100vh - 97px);
-  margin: 16px;
-  margin-left: 16px;
-  display: flex;
-  align-items: center;
 
-  font-size: 2rem;
-  color: lightgray;
-
-  border-radius: 10px;
-} */
 mat-sidenav-container{
   height: calc(100vh - 65px);
-  background-color: aliceblue;
+  background-color: cadetblue;
 }
 
 .menu-button{

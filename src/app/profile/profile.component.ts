@@ -50,9 +50,11 @@ export class ProfileComponent implements OnInit {
       email:[''],
       username:[''],
       district:[''],
-      oldPwd:[''],
-      newPwd:['',Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}')]
-    });
+      passwordForm:this.fb.group({
+        oldPwd:[''],
+        newPwd:['',Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}')]
+      }),
+      });
 
   }
   
@@ -60,7 +62,7 @@ export class ProfileComponent implements OnInit {
     if(this.profileForm.invalid){
       
     }
-    else{
+    else{      
       this.subService.post(this.profileForm.value , '/profileUpdate').subscribe(arg =>{
         
         Swal.fire({
@@ -71,6 +73,7 @@ export class ProfileComponent implements OnInit {
       },error=>{        
         if(error.error.detail != null){
           Swal.fire("",error.error.detail,"warning");
+          this.route.navigate(['/']);
         }
       });
 
@@ -87,10 +90,10 @@ export class ProfileComponent implements OnInit {
       alert("FIll the missing");
     }
     else{
-      if(this.profileForm.controls['oldPwd'].value == this.profileForm.controls['newPwd'].value ){
+      if(this.profileForm.controls['passwordForm'].value.oldPwd == this.profileForm.controls['passwordForm'].value.newPwd ){
         this.status =2;
       }else{
-        this.subService.post(this.profileForm.value , '/pwd').subscribe(arg=>{         
+        this.subService.post(this.profileForm.controls['passwordForm'].value , '/pwd').subscribe(arg=>{         
           this.pwd = arg;
           this.status = this.pwd.status ; 
         },error =>{
