@@ -49,10 +49,6 @@ export class SchoolProfileComponent implements OnInit {
       {id:6 , text:'Primary X'},
     ];
 
-    this.dropdownSetting={
-      idField:"id",textField:'text'
-    }
-
     this.medium=[
       {id:1 , text:'Tamil'},
       {id:2 , text:'English'},
@@ -63,35 +59,40 @@ export class SchoolProfileComponent implements OnInit {
     ];
 
     this.dataForm = this.fb.group({
-      name:[,[Validators.required]],
-      post:[,[Validators.required]] ,
-      district:[,[Validators.required]],
-      state:[,[Validators.required]],
-      ctv:[,[Validators.required]],
-      pincode:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(6),Validators.maxLength(6)]],
-      url:[,[Validators.required]],
-      mail:[,[Validators.required,Validators.email]],  
-      mobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-      type:[,[Validators.required]],
-      needs:[],
-      academic:[,[Validators.required]],
-      establish:[],
-      level:[,[Validators.required]],
-      medium:[,[Validators.required]],
-      affiliation:[,[Validators.required]],
-      t_staff:[,[Validators.required]],
-      gender:[,[Validators.required]],
-      girl:[,[Validators.required]],
-      boys:[,[Validators.required]],
-      total:[,[Validators.required]],
-      n_staff:[,[Validators.required]],
-      correspondent_name:[,[Validators.required]],
-      correspondent_mobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-      correspondent_mail:[,[Validators.required,Validators.email]],
-      principal_name:[,[Validators.required]],
-      principal_mail:[,[Validators.required,Validators.email]],
-      principal_office_mobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-      principal_mobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+      generalInformation1:this.fb.group({
+        institutionName:[,[Validators.required]],
+        postalAddress:[,[Validators.required]] ,
+        district:[,[Validators.required]],
+        state:[,[Validators.required]],
+        cityVillageTown:[,[Validators.required]],
+        pincode:['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(6),Validators.maxLength(6)]],
+        url:[,[Validators.required]],
+        officeMail:[,[Validators.required,Validators.email]],  
+        officeMobile:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+        schoolLocation:[,[Validators.required]],
+        childNeeds:[],
+        academicYear:[,[Validators.required]],
+      }),
+      generalInformation2:this.fb.group({
+        establishYear:[],
+        schoolLevel:[,[Validators.required]],
+        medium:[,[Validators.required]],
+        affiliationNature:[,[Validators.required]],
+        teachingStaff:[,[Validators.required]],
+        gender:[,[Validators.required]],
+        noGirls:[,[Validators.required]],
+        noBoys:[,[Validators.required]],
+        totalStudent:[,[Validators.required]],
+        nonTeachingStaff:[,[Validators.required]],
+        correspondentName:[,[Validators.required]],
+        correspondentMobileNo:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+        correspondentMailId:[,[Validators.required,Validators.email]],
+        principalName:[,[Validators.required]],
+        principalMailId:[,[Validators.required,Validators.email]],
+        principalOfficeMobileNo:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+        principalMobileNo:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+      
+      }),
       recognized:[],
       board_name:[,[Validators.required]],
       affiliate_number:[,[Validators.required]],
@@ -328,34 +329,35 @@ export class SchoolProfileComponent implements OnInit {
     });
 
     this.subService.get('/SchoolProfile').subscribe(arg=>{
-      
-      for(let val of arg.level){
+
+      // set multiselect value for school level
+      for(let val of arg.generalInformation2['schoolLevel']){
         this.selected.push({id:Number(val[0]),text:val[1]});
       }
-      arg.level = this.selected;
+      arg.generalInformation2['schoolLevel'] = this.selected;
 
+      // set multiselect for medium
       this.selected=[];
-      for (let val of arg.medium){
+      for (let val of arg.generalInformation2['medium']){
         this.selected.push({id:Number(val[0]),text:val[1]})
       }
-      arg.medium =this.selected;
-      
+      arg.generalInformation2['medium'] =this.selected;
       this.dataForm.patchValue(arg);
       
-      this.get=arg.scholarship;
-      for (let data of this.get){         
-        this.Scholarship().push(this.loadScholarship(data));
-      }
+      // this.get=arg.scholarship;
+      // for (let data of this.get){         
+      //   this.Scholarship().push(this.loadScholarship(data));
+      // }
 
-      this.get = arg.shift;
-      for(let data of this.get){
-        this.Shift().push(this.loadShift(data));
-      }
+      // this.get = arg.shift;
+      // for(let data of this.get){
+      //   this.Shift().push(this.loadShift(data));
+      // }
 
-      this.get = arg.schoolClass;
-      for(let data of this.get){
-        this.Schoolclass().push(this.loadClass(data));
-      }
+      // this.get = arg.schoolClass;
+      // for(let data of this.get){
+      //   this.Schoolclass().push(this.loadClass(data));
+      // }
       
       
     },
@@ -367,11 +369,12 @@ export class SchoolProfileComponent implements OnInit {
         position:'center',
         confirmButtonColor:'blue',
       })
-      this.route.navigate(['/'])
+      // this.route.navigate(['/'])
     });
     
   }
 
+  // scholarship methods
   loadScholarship(data:any):FormGroup{
     return this.fb.group({
       scholarshipName:[data[0]],
@@ -405,6 +408,7 @@ export class SchoolProfileComponent implements OnInit {
     this.Scholarship().removeAt(i)
   } 
 
+// school shift methods
   loadShift(data:any):FormGroup{
     return this.fb.group({
       shiftName:[data[0]],
@@ -439,6 +443,7 @@ export class SchoolProfileComponent implements OnInit {
     this.Shift().removeAt(n);
   }
 
+  // school class detail methods
   loadClass(data:any):FormGroup{
     return this.fb.group({
       className:[data[0]],
@@ -471,68 +476,52 @@ export class SchoolProfileComponent implements OnInit {
     this.Schoolclass().removeAt(j);
   }
 
+  // next page
   next(){
     this.step +=1;
   }
-
+// previous page
   previous(){
     this.step -=1;
   }
-
-  submit(){
+// form submit method
+  submit(data:any){
+    console.log(data);
+    var name='generalInformation'+data;
     this.submitted=true;
-    if(this.dataForm.valid){
+    if(this.dataForm.controls[name].valid){      
+      this.subService.post(this.dataForm.controls[name].value , '/schoolUpdate').subscribe(arg =>{
+        this.status = arg;
+        this.Status();
+      });
+    } 
 
-      this.subService.post(this.dataForm.value , '/schoolUpdate').subscribe(arg =>{
-      this.status = arg;
-      console.log(arg);
-
-      if (this.status.status != 'error'){
-        Swal.fire({
-          title:"",
-          text:"details saved successfully",
-          confirmButtonColor:'blue',
-          icon:'success',
-          position:'top',
-
-        });
-      }
-      else{
-        Swal.fire({
-          title:"",
-          text:"Can't save changes! Login Again.",
-          confirmButtonColor:'blue',
-          icon:'error',
-          position:'top',
-
-        });
-        this.route.navigate(['/']);
-      }
-      
-    }, error => {
+  }
+// form submit status from api
+  Status(){
+    if (this.status.status_code != 'error'){
       Swal.fire({
         title:"",
-        text:"Login Again!",
+        text:"details saved successfully",
+        confirmButtonColor:'blue',
+        icon:'success',
+        position:'top',
+
+      });
+    }
+    else{
+      Swal.fire({
+        title:"",
+        text:"Can't save changes! Login Again.",
         confirmButtonColor:'blue',
         icon:'error',
-        position:'top'
+        position:'top',
+
       });
-      this.route.navigate(['/']);
-    });
-  }
+      // this.route.navigate(['/']);
+    }
   }
 
-  // change(cnt:any){
-  //   if (cnt>=20){
-  //     cnt=20;
-  //   }
-  //   else if(cnt<1){
-  //     cnt=1;
-  //   }
-  //   this.step=cnt;
-  //   console.log(cnt,this.step);
-    
-  // }
   steps(){
     this.step=20;
   }

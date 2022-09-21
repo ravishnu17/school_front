@@ -35,11 +35,9 @@ export class RegisterComponent implements OnInit {
       this.submitted = true
     }
     else{
-      console.log(this.registerForm.value);
       
       this.subService.post(this.registerForm.value ,'/register').subscribe((arg:any) => {
         this.data=arg;
-        console.log(arg);
         
         if(this.data.email == this.registerForm.controls['email'].value){
           Swal.fire({

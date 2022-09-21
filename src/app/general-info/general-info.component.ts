@@ -20,7 +20,7 @@ export class GeneralInfoComponent implements OnInit {
   ngOnInit(): void {
 
     if(localStorage.getItem('token')==null){
-      Swal.fire("Closed","Your Session is ended. Login Again!",'info');
+      Swal.fire("Closed","Please Login again. Login Again!",'info');
       this.route.navigate(['']);
     }
 

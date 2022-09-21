@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       this.route.navigate(['']);
     }
   }
-
+  // menu action
   path(path:any , page:any){
     if(path ==''){
       localStorage.clear();
@@ -42,16 +42,16 @@ export class HomeComponent implements OnInit {
     this.page=page;
     this.route.navigate([path]);
   }
-  ngAfterViewInit(){
-    this.observer.observe(['(max-width:900px)']).subscribe((res)=>{
-      if(res.matches){
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      }else{
-        this.sidenav.mode ='side';
-        this.sidenav.open();
-      }
-    });
-  }
+  // ngAfterViewInit(){
+  //   this.observer.observe(['(max-width:900px)']).subscribe((res)=>{
+  //     if(res.matches){
+  //       this.sidenav.mode = 'over';
+  //       this.sidenav.close();
+  //     }else{
+  //       this.sidenav.mode ='side';
+  //       this.sidenav.open();
+  //     }
+  //   });
+  // }
 
 }
