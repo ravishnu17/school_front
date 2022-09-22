@@ -2,6 +2,7 @@
     <div class="card p-4">
         <form [formGroup]="dataForm" (submit)="submit(step)">
                 <h4 class="text-primary" style="text-align:center;font-size:large;font-family:'Times New Roman', Times, serif">Edustar School Profile</h4>
+                <div class="text text-dark d-flex justify-content-end">Note: <span class="text text-secondary bg-white" style="margin-left:3px;"> please save changes on each page</span></div>
             <div *ngFor="let count of page | paginate:{itemsPerPage:1,currentPage: step}">
                 <div *ngIf="step<=1">
                     <div class="card">

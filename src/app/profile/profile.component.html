@@ -268,10 +268,10 @@
                             </h2>
                             <div class="card-body">
                                 <div class="row">
-                                    <div *ngIf="status == 1" class="alert alert-success">Successfully changed</div>
-                                    <div *ngIf="status == 0" class="alert alert-danger">Your old password is incorrect
+                                    <div *ngIf="status == 2" class="alert alert-success">Successfully changed</div>
+                                    <div *ngIf="status == 1" class="alert alert-danger">Your old password is incorrect
                                     </div>
-                                    <div *ngIf="status == 2" class="alert alert-danger">Password should not be same
+                                    <div *ngIf="status == 0" class="alert alert-danger">Password should not be same
                                     </div>
 
                                     <div class="col-1"></div>

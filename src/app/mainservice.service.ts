@@ -22,17 +22,14 @@ export class MainserviceService {
 
   get(url :any):Observable<any>{  
     this.token =new HttpHeaders({"Authorization":localStorage.getItem('type')+" "+localStorage.getItem('token')});
-    alert(localStorage.getItem('token'));
     return this.http.get(this.baseUrl+url , {headers:this.token});
   }
 
-  post(data:any,url:any){   
-    alert(localStorage.getItem('token')); 
+  post(data:any,url:any){
     return this.http.post(this.baseUrl+url,data , {headers:this.token});
   }
 
   delete(url :any){
-    alert(localStorage.getItem('token'));
     return this.http.delete(this.baseUrl+url , {headers:this.token});
   }
 }

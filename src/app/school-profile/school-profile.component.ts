@@ -368,8 +368,8 @@ export class SchoolProfileComponent implements OnInit {
         icon:'warning',
         position:'center',
         confirmButtonColor:'blue',
-      })
-      // this.route.navigate(['/'])
+      });
+      this.route.navigate(['/']);
     });
     
   }
@@ -493,6 +493,15 @@ export class SchoolProfileComponent implements OnInit {
       this.subService.post(this.dataForm.controls[name].value , '/schoolUpdate').subscribe(arg =>{
         this.status = arg;
         this.Status();
+      },error =>{
+        Swal.fire({
+          title:'Session ended !',
+          text:"login Again...",
+          icon:'warning',
+          position:'center',
+          confirmButtonColor:'blue',
+        });
+        this.route.navigate(['/']);
       });
     } 
 
