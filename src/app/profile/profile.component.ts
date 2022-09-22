@@ -91,9 +91,9 @@ export class ProfileComponent implements OnInit {
     }
     else{
       if(this.profileForm.controls['passwordForm'].value.oldPwd == this.profileForm.controls['passwordForm'].value.newPwd ){
-        this.status =2;
+        this.status =0;
       }else{
-        this.subService.post(this.profileForm.controls['passwordForm'].value , '/pwd').subscribe(arg=>{         
+        this.subService.post(this.profileForm.controls['passwordForm'].value , '/password').subscribe(arg=>{         
           this.pwd = arg;
           this.status = this.pwd.status ; 
         },error =>{

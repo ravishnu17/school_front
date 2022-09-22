@@ -93,12 +93,13 @@ export class SchoolProfileComponent implements OnInit {
         principalMobileNo:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
       
       }),
-      recognized:[],
-      board_name:[,[Validators.required]],
-      affiliate_number:[,[Validators.required]],
-      affiliate_year:[,[Validators.required]],
-      affiliate_type:[,[Validators.required]],
-      affiliate_state:[],
+      generalInformation3:this.fb.group({
+      recognizedByGovern:[],
+      boardName:[,[Validators.required]],
+      affiliationNumber:[,[Validators.required]],
+      affiliationYear:[,[Validators.required]],
+      affiliationType:[,[Validators.required]],
+      affiliationStatement:[],
       christian:[,[Validators.required]],
       hindu:[,[Validators.required]],
       islam:[,[Validators.required]],
@@ -108,6 +109,7 @@ export class SchoolProfileComponent implements OnInit {
       sanitation:[],
       building:[],
       minority:[],
+      }),
       own:[,[Validators.required]],
       trust_name:[,[Validators.required]],
       trust_register:[,[Validators.required]],
@@ -486,7 +488,7 @@ export class SchoolProfileComponent implements OnInit {
   }
 // form submit method
   submit(data:any){
-    console.log(data);
+    console.log(data,this.step);
     var name='generalInformation'+data;
     this.submitted=true;
     if(this.dataForm.controls[name].valid){      

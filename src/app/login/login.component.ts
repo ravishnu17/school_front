@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       alert("Field should not be Empty");
     }
     else{
-      this.subService.post(this.loginForm.value,'/forgotPwd').subscribe(data=>{
+      this.subService.post(this.loginForm.value,'/forgotPassword').subscribe(data=>{
         this.data = data;
         Swal.fire({
           title:'Successfully changed',

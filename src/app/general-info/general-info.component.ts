@@ -56,7 +56,7 @@ export class GeneralInfoComponent implements OnInit {
 
   change(){
     console.log(this.changeForm.value);
-    this.service.post(this.changeForm.value , '/change').subscribe((arg:any) =>{
+    this.service.post(this.changeForm.value , '/changeRole').subscribe((arg:any) =>{
       this.data = arg;
       alert(this.data.status);
       location.reload();
