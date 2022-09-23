@@ -59,7 +59,7 @@ export class SchoolProfileComponent implements OnInit {
     ];
 
     this.dataForm = this.fb.group({
-      generalInformation1:this.fb.group({
+      Information1:this.fb.group({
         institutionName:[,[Validators.required]],
         postalAddress:[,[Validators.required]] ,
         district:[,[Validators.required]],
@@ -73,7 +73,7 @@ export class SchoolProfileComponent implements OnInit {
         childNeeds:[],
         academicYear:[,[Validators.required]],
       }),
-      generalInformation2:this.fb.group({
+      Information2:this.fb.group({
         establishYear:[],
         schoolLevel:[,[Validators.required]],
         medium:[,[Validators.required]],
@@ -93,7 +93,7 @@ export class SchoolProfileComponent implements OnInit {
         principalMobileNo:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
       
       }),
-      generalInformation3:this.fb.group({
+      Information3:this.fb.group({
       recognizedByGovern:[],
       boardName:[,[Validators.required]],
       affiliationNumber:[,[Validators.required]],
@@ -110,240 +110,276 @@ export class SchoolProfileComponent implements OnInit {
       building:[],
       minority:[],
       }),
-      own:[,[Validators.required]],
-      trust_name:[,[Validators.required]],
-      trust_register:[,[Validators.required]],
-      register_act:[],
-      register_year:[],
-      register_no:[,[Validators.required]],
-      register_validity:[],
-      president_name:[,[Validators.required]],
-      president_designation:[],
-      president_address:[,[Validators.required]],
-      president_number:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
-      president_email:[,[Validators.required,Validators.email,]],
-      gover_trust:[,[Validators.required]],
-      gover_member:[],
-      gover_tenure:[],
-      educative:[,[Validators.required]],
-      educative_member:[],
-      educative_tenure:[],
-      pta:[,[Validators.required]],
-      pta_member:[],
-      pta_tenure:[],
-      student_council:[,[Validators.required]],
-      student_member:[],
-      student_tenure:[],
-      general_complaint:[,[Validators.required]],
-      school_commit:[,[Validators.required]],
-      constitution_commit:[,[Validators.required]],
-      constitution_member:[],
-      constitution_tenure:[],
-      school_building:[,[Validators.required]],
-      schoolArea:[,[Validators.required]],
-      schoolBuilt:[,[Validators.required]],
-      groundArea:[,[Validators.required]],
-      noBuilding:[,[Validators.required]],
-      provision:[],
-      noStaircase:[,[Validators.required]],
-      lift:[,[Validators.required]],
-      classRoom:[,[Validators.required]],
-      staffRoom:[,[Validators.required]],
-      physicalLab:[,[Validators.required]],
-      chemistryLab:[,[Validators.required]],
-      biologylab:[,[Validators.required]],
-      mathsLab:[,[Validators.required]],
-      science:[],
-      library:[,[Validators.required]],
-      auditorium:[,[Validators.required]],
-      counselor:[,[Validators.required]],
-      parlor:[],
-      prayer:[],
-      sick:[,[Validators.required]],
-      canteen:[],
-      security:[],
-      otherRoom:[],
-      staffToilets:[,[Validators.required]],
-      studToilet:[,[Validators.required]],
-      teacher:[],
-      boundry:[,[Validators.required]],
-      boundry_wall:[],
-      cctv:[,[Validators.required]],
-      dataSave:[,[Validators.required]],
-      camera:[],
-      maleGuard:[,[Validators.required]],
-      noMaleGuard:[],
-      femaleGuard:[,[Validators.required]],
-      noFemaleGuard:[],
-      drinkWater:[,[Validators.required]],
-      drainage:[,[Validators.required]],
-      midday:[,[Validators.required]],
-      nobus:[,[Validators.required]],
-      gps:[,[Validators.required]],
-      noladyAttend:[],
-      firstAid:[,[Validators.required]],
-      noDrinkWater:[,[Validators.required]],
-      BusContract:[,[Validators.required]],
-      buspass:[,[Validators.required]],
-      freeTransport:[,[Validators.required]],
-      library_open:[],
-      library_close:[],
-      noBook:[],
-      magazine:[],
-      noNews:[],
-      noEbook:[],
-      primaryLibrary:[,[Validators.required]],
-      remedial:[],
-      tv:[],
-      digitalboard:[],
-      computer:[],
-      projector:[],
-      tape:[],
-      ppm:[,[Validators.required]],
-      ppf:[,[Validators.required]],
-      tpm:[],
-      tpf:[],
-      pvm:[,[Validators.required]],
-      pvf:[,[Validators.required]],
-      tvm:[],
-      tvf:[],
-      ppgtm:[,[Validators.required]],
-      ppgtf:[,[Validators.required]],
-      tpgtm:[],
-      tpgtf:[],
-      ptgtm:[,[Validators.required]],
-      ptgtf:[,[Validators.required]],
-      ttgtm:[],
-      ttgtf:[],
-      pprtm:[,[Validators.required]],
-      pprtf:[,[Validators.required]],
-      tprtm:[],
-      tprtf:[],
-      pnttm:[,[Validators.required]],
-      pnttf:[,[Validators.required]],
-      tnttm:[],
-      tnttf:[],
-      putm:[,[Validators.required]],
-      putf:[,[Validators.required]],
-      tutm:[],
-      tutf:[],
-      plm:[,[Validators.required]],
-      plf:[,[Validators.required]],
-      tlm:[],
-      tlf:[],
-      pmtm:[,[Validators.required]],
-      pmtf:[,[Validators.required]],
-      tmtm:[],
-      tmtf:[],
-      pctm:[,[Validators.required]],
-      pctf:[,[Validators.required]],
-      tctm:[],
-      tctf:[],
-      pcltm:[,[Validators.required]],
-      pcltf:[,[Validators.required]],
-      tcltm:[],
-      tcltf:[],
-      pfmm:[,[Validators.required]],
-      pfmf:[,[Validators.required]],
-      tfmm:[],
-      tfmf:[],
-      pnm:[,[Validators.required]],
-      pnf:[,[Validators.required]],
-      tnm:[],
-      tnf:[],
-      pptm:[,[Validators.required]],
-      pptf:[,[Validators.required]],
-      tptm:[],
-      tptf:[],
-      pom:[],
-      tom:[],
-      ptom:[],
-      poa:[],
-      toa:[],
-      ptoa:[],
-      pc:[],
-      tc:[],
-      ptc:[],
-      pla:[],
-      tla:[],
-      ptla:[],
-      pa:[],
-      ta:[],
-      ptac:[],
-      ppc:[],
-      tpc:[],
-      ptpc:[],
-      po:[],
-      to:[],
-      pto:[],
-      no_of_act:[],
-      no_of_group:[],
-      no_of_service:[],
-      school_sports:[],
-      zonal_sports:[],
-      district_sports:[],
-      state_sports:[],
-      national_sports:[],
-      international_sports:[],
-      school_compet:[],
-      zonal_compet:[],
-      district_compet:[],
-      state_compet:[],
-      national_compet:[],
-      international_compet:[],
-      school_program:[],
-      zonal_program:[],
-      district_program:[],
-      state_program:[],
-      national_program:[],
-      international_program:[],
-      school_history:[],
-      school_plan:[],
-      academic_begin_month:[],
-      academic_end_month:[],
-      no_of_work_2021:[],
-      no_of_work_2020:[],
-      no_of_work_2019:[],
-      no_of_hour_2021:[],
-      no_of_hour_2020:[],
-      no_of_hour_2019:[],
-      no_of_totalhour_2021:[],
-      no_of_totalhour_2020:[],
-      no_of_totalhour_2019:[],
-      no_of_dayStaff_2021:[],
-      no_of_dayStaff_2020:[],
-      no_of_dayStaff_2019:[],
-      no_of_holiday_2021:[],
-      no_of_holiday_2020:[],
-      no_of_holiday_2019:[],
-      no_of_subject:[],
-      no_of_moral:[],
-      teach_time:[],
-      no_of_activity:[],
-      from_summer_time:[],
-      to_summer_time:[],
-      from_winter_time:[],
-      to_winter_time:[],
-      school_shift:[],
-      scholarship:this.fb.array([]),
-      shift:this.fb.array([]),
+      Information4:this.fb.group({
+        schoolOwned:[,[Validators.required]],
+        trustName:[,[Validators.required]],
+        trustRegistered:[,[Validators.required]],
+        registeredAct:[],
+        registerYear:[],
+        registerNo:[,[Validators.required]],
+        registrationValidity:[],
+        presidentName:[,[Validators.required]],
+        presidentDesignation:[],
+        presidentAddress:[,[Validators.required]],
+        presidentNumber:[,[Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+        presidentEmail:[,[Validators.required,Validators.email,]],
+      
+      }),
+      Information5:this.fb.group({
+        governingTrust:[,[Validators.required]],
+        governingMember:[],
+        governingTenure:[],
+        educativeCommunity:[,[Validators.required]],
+        educativeCommunityMember:[],
+        educativeCommunityTenure:[],
+        pta:[,[Validators.required]],
+        ptaMember:[],
+        ptaTenure:[]
+      }),
+      Information6:this.fb.group({
+        studentCouncil:[,[Validators.required]],
+        studentMember:[],
+        studentTenure:[],
+        generalComplaint:[,[Validators.required]],
+        schoolCommit:[,[Validators.required]],
+        constitutionCommit:[,[Validators.required]],
+        constitutionMember:[],
+        constitutionTenure:[],
+      }),
+      Information7:this.fb.group({
+        schoolBuilding:[,[Validators.required]],
+        schoolArea:[,[Validators.required]],
+        schoolBuilt:[,[Validators.required]],
+        groundArea:[,[Validators.required]],
+        noBuilding:[,[Validators.required]],
+        provision:[],
+        noStaircase:[,[Validators.required]],
+        noLift:[,[Validators.required]]
+      }),
+      Information8:this.fb.group({
+        schoolHistory:[]
+      }),
+      Information9:this.fb.group({
+        schoolPlan:[]
+      }),
+      Information10:this.fb.group({
+        classRoom:[,[Validators.required]],
+        staffRoom:[,[Validators.required]],
+        physicalLab:[,[Validators.required]],
+        chemistryLab:[,[Validators.required]],
+        biologylab:[,[Validators.required]],
+        mathsLab:[,[Validators.required]],
+        scienceLab:[],
+        library:[,[Validators.required]],
+        auditorium:[,[Validators.required]],
+        counselor:[,[Validators.required]],
+        parlor:[],
+        prayer:[],
+        sick:[,[Validators.required]],
+        canteen:[],
+        security:[],
+        otherRoom:[],
+        staffToilets:[,[Validators.required]],
+        studToilet:[,[Validators.required]],
+        teacher:[],
+      }),
+      Information11:this.fb.group({
+        boundryWall:[,[Validators.required]],
+        boundryWallStatus:[],
+        cctv:[,[Validators.required]],
+        dataSave:[,[Validators.required]],
+        noCamera:[],
+        maleGuard:[,[Validators.required]],
+        noMaleGuard:[],
+        femaleGuard:[,[Validators.required]],
+        noFemaleGuard:[],
+        drinkWater:[,[Validators.required]],
+        drainage:[,[Validators.required]],
+      }),
+      Information12:this.fb.group({
+        middayScheme:[,[Validators.required]],
+        noOwnBus:[,[Validators.required]],
+        gpsCamera:[,[Validators.required]],
+        noladyAttend:[],
+        firstAid:[,[Validators.required]],
+        noDrinkWater:[,[Validators.required]],
+        BusContract:[,[Validators.required]],
+        buspass:[,[Validators.required]],
+        freeTransport:[,[Validators.required]],
+      }),
+      Information13:this.fb.group({
+        libraryOpenTime:[],
+        libraryCloseTime:[],
+        noBook:[],
+        noMagazine:[],
+        noNews:[],
+        noEbook:[],
+        primaryLibrary:[,[Validators.required]],
+        remedial:[],
+        tv:[],
+        digitalboard:[],
+        computer:[],
+        projector:[],
+        tape:[],
+      }),
+      Information14:this.fb.group({
+        permanentPrincipalMale:[,[Validators.required]],
+        permanentPrincipalFemale:[,[Validators.required]],
+        temporaryPrincipalMale:[],
+        temporaryPrincipalFemale:[],
+        permanentVicePrincipalMale:[,[Validators.required]],
+        permanentVicePrincipalFemale:[,[Validators.required]],
+        temporaryVicePrincipalMale:[],
+        temporaryVicePrincipalFemale:[],
+        permanentPGTMale:[,[Validators.required]],
+        permanentPGTFemale:[,[Validators.required]],
+        temporaryPGTMale:[],
+        temporaryPGTFemale:[],
+        permanentTGTMale:[,[Validators.required]],
+        permanentTGTFemale:[,[Validators.required]],
+        temporaryTGTMale:[],
+        temporaryTGTFemale:[],
+        permanentPRTMale:[,[Validators.required]],
+        permanentPRTFemale:[,[Validators.required]],
+        temporaryPRTMale:[],
+        temporaryPRTFemale:[],
+        permanentNTTMale:[,[Validators.required]],
+        permanentNTTFemale:[,[Validators.required]],
+        temporaryNTTMale:[],
+        temporaryNTTFemale:[],
+        permanentUntrainedTeacherMale:[,[Validators.required]],
+        permanentUntrainedTeacherFemale:[,[Validators.required]],
+        temporaryUntrainedTeacherMale:[],
+        temporaryUntrainedTeacherFemale:[],
+        permanentLibrarianMale:[,[Validators.required]],
+        permanentLibrarianFemale:[,[Validators.required]],
+        temporaryLibrarianMale:[],
+        temporaryLibrarianFemale:[],
+        permanentMusicTeacherMale:[,[Validators.required]],
+        permanentMusicTeacherFemale:[,[Validators.required]],
+        temporaryMusicTeacherMale:[],
+        temporaryMusicTeacherFemale:[],
+        permanentCounsellorMale:[,[Validators.required]],
+        permanentCounsellorFemale:[,[Validators.required]],
+        temporaryCounsellorMale:[],
+        temporaryCounsellorFemale:[],
+        permanentComputerLiteracyMale:[,[Validators.required]],
+        permanentComputerLiteracyFemale:[,[Validators.required]],
+        temporaryComputerLiteracyMale:[],
+        temporaryComputerLiteracyFemale:[],
+        permanentFaithMinisterMale:[,[Validators.required]],
+        permanentFaithMinisterFemale:[,[Validators.required]],
+        temporaryFaithMinisterMale:[],
+        temporaryFaithMinisterFemale:[],
+        permanentNurseMale:[,[Validators.required]],
+        permanentNurseFemale:[,[Validators.required]],
+        temporaryNurseMale:[],
+        temporaryNurseFemale:[],
+        permanentPTTeacherMale:[,[Validators.required]],
+        permanentPTTeacherFemale:[,[Validators.required]],
+        temporaryPTTeacherMale:[],
+        temporaryPTTeacherFemale:[],
+      }),
+      Information15:this.fb.group({
+        permanentOfficeManager:[],
+        temporaryOfficeManager:[],
+        partTimeOfficeManager:[],
+        permanentOfficeAssistant:[],
+        temporaryOfficeAssistant:[],
+        partTimeOfficeAssistant:[],
+        permanentClerk:[],
+        temporaryClerk:[],
+        partTimeClerk:[],
+        permanentLabAttendants:[],
+        temporaryLabAttendants:[],
+        partTimeLabAttendants:[],
+        permanentAccountant:[],
+        temporaryAccountant:[],
+        partTimeAccountant:[],
+        permanentPeonesClerk:[],
+        temporaryPeonesClerk:[],
+        partTimePeonesClerk:[],
+        permanentOthers:[],
+        temporaryOthers:[],
+        partTimeOthers:[],
+      }),
+      Information16:this.fb.group({
+        noCurricularActivities:[],
+        noGroupsPresent:[],
+        noCommunityService:[],
+        schoolSports:[],
+        zonalSports:[],
+        districtSports:[],
+        stateSports:[],
+        nationalSports:[],
+        internationalSports:[],
+        schoolCompetition:[],
+        zonalCompetition:[],
+        districtCompetition:[],
+        stateCompetition:[],
+        nationalCompetition:[],
+        internationalCompetition:[],
+        schoolProgram:[],
+        zonalProgram:[],
+        districtProgram:[],
+        stateProgram:[],
+        nationalProgram:[],
+        internationalProgram:[],
+      }),
+      Information17:this.fb.group({
+        academicYearStart:[],
+        academicYearEnd:[],
+        noWorkingDays1:[],
+        noWorkingDays2:[],
+        noWorkingDays3:[],
+        noWorkingHours1:[],
+        noWorkingHours2:[],
+        noWorkingHours3:[],
+        totalHours1:[],
+        totalHours2:[],
+        totalHours3:[],
+        noWorkingDaysForStaff1:[],
+        noWorkingDaysForStaff2:[],
+        noWorkingDaysForStaff3:[],
+        noHolidays1:[],
+        noHolidays2:[],
+        noHolidays3:[]
+      }),
+      Information18:this.fb.group({
+        noSubjectPerWeek:[],
+        noMoralTeachPerWeek:[],
+        teachingDuration:[],
+        noHoursForActivity:[],
+        fromTimeInSummer:[],
+        toTimeInSummer:[],
+        fromTimeInWinter:[],
+        toTimeInWinter:[],
+        schoolWorkWithShift:[]
+      }),
+      Information19:this.fb.group({
+        scholarship:this.fb.array([])
+      }),
+      Information20:this.fb.group({
+        shift:this.fb.array([]),
       schoolClass:this.fb.array([])
+      }),
+      
     });
 
     this.subService.get('/SchoolProfile').subscribe(arg=>{
 
       // set multiselect value for school level
-      for(let val of arg.generalInformation2['schoolLevel']){
+      for(let val of arg.Information2['schoolLevel']){
         this.selected.push({id:Number(val[0]),text:val[1]});
       }
-      arg.generalInformation2['schoolLevel'] = this.selected;
+      arg.Information2['schoolLevel'] = this.selected;
 
       // set multiselect for medium
       this.selected=[];
-      for (let val of arg.generalInformation2['medium']){
+      for (let val of arg.Information2['medium']){
         this.selected.push({id:Number(val[0]),text:val[1]})
       }
-      arg.generalInformation2['medium'] =this.selected;
+      arg.Information2['medium'] =this.selected;
       this.dataForm.patchValue(arg);
       
       // this.get=arg.scholarship;
@@ -398,7 +434,7 @@ export class SchoolProfileComponent implements OnInit {
   }
 
   Scholarship():FormArray{
-    return this.dataForm.get('scholarship') as FormArray;
+    return this.dataForm.get('Information19.scholarship') as FormArray;
   }
 
   addScholarship(){
@@ -434,7 +470,7 @@ export class SchoolProfileComponent implements OnInit {
   }
 
   Shift():FormArray{
-    return this.dataForm.get('shift') as FormArray;
+    return this.dataForm.get('Information20.shift') as FormArray;
   }
 
   addShift(){
@@ -467,7 +503,7 @@ export class SchoolProfileComponent implements OnInit {
   }
 
   Schoolclass():FormArray{
-    return this.dataForm.get('schoolClass') as FormArray;
+    return this.dataForm.get('Information20.schoolClass') as FormArray;
   }
 
   addClass(){
@@ -488,9 +524,12 @@ export class SchoolProfileComponent implements OnInit {
   }
 // form submit method
   submit(data:any){
-    console.log(data,this.step);
-    var name='generalInformation'+data;
+    
+    var name='Information'+data;
+    console.log(data,this.step ,name);
     this.submitted=true;
+    console.log(this.dataForm.controls[name].value);
+    
     if(this.dataForm.controls[name].valid){      
       this.subService.post(this.dataForm.controls[name].value , '/schoolUpdate').subscribe(arg =>{
         this.status = arg;
@@ -533,8 +572,8 @@ export class SchoolProfileComponent implements OnInit {
     }
   }
 
-  steps(){
-    this.step=20;
+  steps(val:any){
+    this.step=val;
   }
 
 }
