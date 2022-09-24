@@ -367,7 +367,7 @@ export class SchoolProfileComponent implements OnInit {
     });
 
     this.subService.get('/SchoolProfile').subscribe(arg=>{
-
+      
       // set multiselect value for school level
       for(let val of arg.Information2['schoolLevel']){
         this.selected.push({id:Number(val[0]),text:val[1]});
@@ -382,20 +382,21 @@ export class SchoolProfileComponent implements OnInit {
       arg.Information2['medium'] =this.selected;
       this.dataForm.patchValue(arg);
       
-      // this.get=arg.scholarship;
-      // for (let data of this.get){         
-      //   this.Scholarship().push(this.loadScholarship(data));
-      // }
+      
+      this.get=arg.Information19['scholarship'];
+      for (let data of this.get){         
+        this.Scholarship().push(this.loadScholarship(data));
+      }
 
-      // this.get = arg.shift;
-      // for(let data of this.get){
-      //   this.Shift().push(this.loadShift(data));
-      // }
+      this.get = arg.Information20['shift'];
+      for(let data of this.get){
+        this.Shift().push(this.loadShift(data));
+      }
 
-      // this.get = arg.schoolClass;
-      // for(let data of this.get){
-      //   this.Schoolclass().push(this.loadClass(data));
-      // }
+      this.get = arg.Information20['schoolClass'];
+      for(let data of this.get){
+        this.Schoolclass().push(this.loadClass(data));
+      }
       
       
     },
