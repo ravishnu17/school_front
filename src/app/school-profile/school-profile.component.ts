@@ -59,6 +59,7 @@ export class SchoolProfileComponent implements OnInit {
     ];
 
     this.dataForm = this.fb.group({
+      
       Information1:this.fb.group({
         institutionName:[,[Validators.required]],
         postalAddress:[,[Validators.required]] ,
@@ -225,136 +226,136 @@ export class SchoolProfileComponent implements OnInit {
       Information14:this.fb.group({
         permanentPrincipalMale:[,[Validators.required]],
         permanentPrincipalFemale:[,[Validators.required]],
-        temporaryPrincipalMale:[],
-        temporaryPrincipalFemale:[],
+        temporaryPrincipalMale:[,[Validators.required]],
+        temporaryPrincipalFemale:[,[Validators.required]],
         permanentVicePrincipalMale:[,[Validators.required]],
         permanentVicePrincipalFemale:[,[Validators.required]],
-        temporaryVicePrincipalMale:[],
-        temporaryVicePrincipalFemale:[],
+        temporaryVicePrincipalMale:[,[Validators.required]],
+        temporaryVicePrincipalFemale:[,[Validators.required]],
         permanentPGTMale:[,[Validators.required]],
         permanentPGTFemale:[,[Validators.required]],
-        temporaryPGTMale:[],
-        temporaryPGTFemale:[],
+        temporaryPGTMale:[,[Validators.required]],
+        temporaryPGTFemale:[,[Validators.required]],
         permanentTGTMale:[,[Validators.required]],
         permanentTGTFemale:[,[Validators.required]],
-        temporaryTGTMale:[],
-        temporaryTGTFemale:[],
+        temporaryTGTMale:[,[Validators.required]],
+        temporaryTGTFemale:[,[Validators.required]],
         permanentPRTMale:[,[Validators.required]],
         permanentPRTFemale:[,[Validators.required]],
-        temporaryPRTMale:[],
-        temporaryPRTFemale:[],
+        temporaryPRTMale:[,[Validators.required]],
+        temporaryPRTFemale:[,[Validators.required]],
         permanentNTTMale:[,[Validators.required]],
         permanentNTTFemale:[,[Validators.required]],
-        temporaryNTTMale:[],
-        temporaryNTTFemale:[],
+        temporaryNTTMale:[,[Validators.required]],
+        temporaryNTTFemale:[,[Validators.required]],
         permanentUntrainedTeacherMale:[,[Validators.required]],
         permanentUntrainedTeacherFemale:[,[Validators.required]],
-        temporaryUntrainedTeacherMale:[],
-        temporaryUntrainedTeacherFemale:[],
+        temporaryUntrainedTeacherMale:[,[Validators.required]],
+        temporaryUntrainedTeacherFemale:[,[Validators.required]],
         permanentLibrarianMale:[,[Validators.required]],
         permanentLibrarianFemale:[,[Validators.required]],
-        temporaryLibrarianMale:[],
-        temporaryLibrarianFemale:[],
+        temporaryLibrarianMale:[,[Validators.required]],
+        temporaryLibrarianFemale:[,[Validators.required]],
         permanentMusicTeacherMale:[,[Validators.required]],
         permanentMusicTeacherFemale:[,[Validators.required]],
-        temporaryMusicTeacherMale:[],
-        temporaryMusicTeacherFemale:[],
+        temporaryMusicTeacherMale:[,[Validators.required]],
+        temporaryMusicTeacherFemale:[,[Validators.required]],
         permanentCounsellorMale:[,[Validators.required]],
         permanentCounsellorFemale:[,[Validators.required]],
-        temporaryCounsellorMale:[],
-        temporaryCounsellorFemale:[],
+        temporaryCounsellorMale:[,[Validators.required]],
+        temporaryCounsellorFemale:[,[Validators.required]],
         permanentComputerLiteracyMale:[,[Validators.required]],
         permanentComputerLiteracyFemale:[,[Validators.required]],
-        temporaryComputerLiteracyMale:[],
-        temporaryComputerLiteracyFemale:[],
+        temporaryComputerLiteracyMale:[,[Validators.required]],
+        temporaryComputerLiteracyFemale:[,[Validators.required]],
         permanentFaithMinisterMale:[,[Validators.required]],
         permanentFaithMinisterFemale:[,[Validators.required]],
-        temporaryFaithMinisterMale:[],
-        temporaryFaithMinisterFemale:[],
+        temporaryFaithMinisterMale:[,[Validators.required]],
+        temporaryFaithMinisterFemale:[,[Validators.required]],
         permanentNurseMale:[,[Validators.required]],
         permanentNurseFemale:[,[Validators.required]],
-        temporaryNurseMale:[],
-        temporaryNurseFemale:[],
+        temporaryNurseMale:[,[Validators.required]],
+        temporaryNurseFemale:[,[Validators.required]],
         permanentPTTeacherMale:[,[Validators.required]],
         permanentPTTeacherFemale:[,[Validators.required]],
-        temporaryPTTeacherMale:[],
-        temporaryPTTeacherFemale:[],
+        temporaryPTTeacherMale:[,[Validators.required]],
+        temporaryPTTeacherFemale:[,[Validators.required]],
       }),
       Information15:this.fb.group({
-        permanentOfficeManager:[],
-        temporaryOfficeManager:[],
-        partTimeOfficeManager:[],
-        permanentOfficeAssistant:[],
-        temporaryOfficeAssistant:[],
-        partTimeOfficeAssistant:[],
-        permanentClerk:[],
-        temporaryClerk:[],
-        partTimeClerk:[],
-        permanentLabAttendants:[],
-        temporaryLabAttendants:[],
-        partTimeLabAttendants:[],
-        permanentAccountant:[],
-        temporaryAccountant:[],
-        partTimeAccountant:[],
-        permanentPeonesClerk:[],
-        temporaryPeonesClerk:[],
-        partTimePeonesClerk:[],
-        permanentOthers:[],
-        temporaryOthers:[],
-        partTimeOthers:[],
+        permanentOfficeManager:[,[Validators.required]],
+        temporaryOfficeManager:[,[Validators.required]],
+        partTimeOfficeManager:[,[Validators.required]],
+        permanentOfficeAssistant:[,[Validators.required]],
+        temporaryOfficeAssistant:[,[Validators.required]],
+        partTimeOfficeAssistant:[,[Validators.required]],
+        permanentClerk:[,[Validators.required]],
+        temporaryClerk:[,[Validators.required]],
+        partTimeClerk:[,[Validators.required]],
+        permanentLabAttendants:[,[Validators.required]],
+        temporaryLabAttendants:[,[Validators.required]],
+        partTimeLabAttendants:[,[Validators.required]],
+        permanentAccountant:[,[Validators.required]],
+        temporaryAccountant:[,[Validators.required]],
+        partTimeAccountant:[,[Validators.required]],
+        permanentPeonesClerk:[,[Validators.required]],
+        temporaryPeonesClerk:[,[Validators.required]],
+        partTimePeonesClerk:[,[Validators.required]],
+        permanentOthers:[,[Validators.required]],
+        temporaryOthers:[,[Validators.required]],
+        partTimeOthers:[,[Validators.required]],
       }),
       Information16:this.fb.group({
-        noCurricularActivities:[],
-        noGroupsPresent:[],
-        noCommunityService:[],
-        schoolSports:[],
-        zonalSports:[],
-        districtSports:[],
-        stateSports:[],
-        nationalSports:[],
-        internationalSports:[],
-        schoolCompetition:[],
-        zonalCompetition:[],
-        districtCompetition:[],
-        stateCompetition:[],
-        nationalCompetition:[],
-        internationalCompetition:[],
-        schoolProgram:[],
-        zonalProgram:[],
-        districtProgram:[],
-        stateProgram:[],
-        nationalProgram:[],
-        internationalProgram:[],
+        noCurricularActivities:[,[Validators.required]],
+        noGroupsPresent:[,[Validators.required]],
+        noCommunityService:[,[Validators.required]],
+        schoolSports:[,[Validators.required]],
+        zonalSports:[,[Validators.required]],
+        districtSports:[,[Validators.required]],
+        stateSports:[,[Validators.required]],
+        nationalSports:[,[Validators.required]],
+        internationalSports:[,[Validators.required]],
+        schoolCompetition:[,[Validators.required]],
+        zonalCompetition:[,[Validators.required]],
+        districtCompetition:[,[Validators.required]],
+        stateCompetition:[,[Validators.required]],
+        nationalCompetition:[,[Validators.required]],
+        internationalCompetition:[,[Validators.required]],
+        schoolProgram:[,[Validators.required]],
+        zonalProgram:[,[Validators.required]],
+        districtProgram:[,[Validators.required]],
+        stateProgram:[,[Validators.required]],
+        nationalProgram:[,[Validators.required]],
+        internationalProgram:[,[Validators.required]],
       }),
       Information17:this.fb.group({
-        academicYearStart:[],
-        academicYearEnd:[],
-        noWorkingDays1:[],
-        noWorkingDays2:[],
-        noWorkingDays3:[],
-        noWorkingHours1:[],
-        noWorkingHours2:[],
-        noWorkingHours3:[],
-        totalHours1:[],
-        totalHours2:[],
-        totalHours3:[],
-        noWorkingDaysForStaff1:[],
-        noWorkingDaysForStaff2:[],
-        noWorkingDaysForStaff3:[],
-        noHolidays1:[],
-        noHolidays2:[],
-        noHolidays3:[]
+        academicYearStart:[,[Validators.required]],
+        academicYearEnd:[,[Validators.required]],
+        noWorkingDays1:[,[Validators.required]],
+        noWorkingDays2:[,[Validators.required]],
+        noWorkingDays3:[,[Validators.required]],
+        noWorkingHours1:[,[Validators.required]],
+        noWorkingHours2:[,[Validators.required]],
+        noWorkingHours3:[,[Validators.required]],
+        totalHours1:[,[Validators.required]],
+        totalHours2:[,[Validators.required]],
+        totalHours3:[,[Validators.required]],
+        noWorkingDaysForStaff1:[,[Validators.required]],
+        noWorkingDaysForStaff2:[,[Validators.required]],
+        noWorkingDaysForStaff3:[,[Validators.required]],
+        noHolidays1:[,[Validators.required]],
+        noHolidays2:[,[Validators.required]],
+        noHolidays3:[,[Validators.required]]
       }),
       Information18:this.fb.group({
-        noSubjectPerWeek:[],
-        noMoralTeachPerWeek:[],
-        teachingDuration:[],
-        noHoursForActivity:[],
-        fromTimeInSummer:[],
-        toTimeInSummer:[],
-        fromTimeInWinter:[],
-        toTimeInWinter:[],
-        schoolWorkWithShift:[]
+        noSubjectPerWeek:[,[Validators.required]],
+        noMoralTeachPerWeek:[,[Validators.required]],
+        teachingDuration:[,[Validators.required]],
+        noHoursForActivity:[,[Validators.required]],
+        fromTimeInSummer:[,[Validators.required]],
+        toTimeInSummer:[,[Validators.required]],
+        fromTimeInWinter:[,[Validators.required]],
+        toTimeInWinter:[,[Validators.required]],
+        schoolWorkWithShift:[,[Validators.required]]
       }),
       Information19:this.fb.group({
         scholarship:this.fb.array([])
@@ -366,20 +367,28 @@ export class SchoolProfileComponent implements OnInit {
       
     });
 
-    this.subService.get('/SchoolProfile').subscribe(arg=>{
+    this.subService.schoolProfile().subscribe(arg=>{
       
       // set multiselect value for school level
-      for(let val of arg.Information2['schoolLevel']){
-        this.selected.push({id:Number(val[0]),text:val[1]});
-      }
-      arg.Information2['schoolLevel'] = this.selected;
+      if (arg.Information2['schoolLevel']){
 
-      // set multiselect for medium
-      this.selected=[];
-      for (let val of arg.Information2['medium']){
-        this.selected.push({id:Number(val[0]),text:val[1]})
+        for(let val of arg.Information2['schoolLevel']){
+          this.selected.push({id:Number(val[0]),text:val[1]});
+        }
+        arg.Information2['schoolLevel'] = this.selected;
       }
-      arg.Information2['medium'] =this.selected;
+
+      // set multiselect value for medium
+      if(arg.Information2['medium']){
+        
+        this.selected=[];
+        for (let val of arg.Information2['medium']){
+          this.selected.push({id:Number(val[0]),text:val[1]})
+        }
+        arg.Information2['medium'] =this.selected;
+
+      }
+      
       this.dataForm.patchValue(arg);
       
       
@@ -416,7 +425,7 @@ export class SchoolProfileComponent implements OnInit {
   // scholarship methods
   loadScholarship(data:any):FormGroup{
     return this.fb.group({
-      scholarshipName:[data[0]],
+      scholarshipName:[data[0],[Validators.required]],
       scholarshipBoys:[data[1]],
       scholarshipGirls:[data[2]],
       Govtscholarship:[data[3]],
@@ -426,11 +435,11 @@ export class SchoolProfileComponent implements OnInit {
 
   newScholarship():FormGroup{
     return this.fb.group({
-      scholarshipName:[],
-      scholarshipBoys:[],
-      scholarshipGirls:[],
-      Govtscholarship:[],
-      Pvtscholarship:[],
+      scholarshipName:[,[Validators.required]],
+      scholarshipBoys:[,[Validators.required]],
+      scholarshipGirls:[,[Validators.required]],
+      Govtscholarship:[,[Validators.required]],
+      Pvtscholarship:[,[Validators.required]],
     });
   }
 
@@ -461,12 +470,12 @@ export class SchoolProfileComponent implements OnInit {
   
   newShift():FormGroup{
     return this.fb.group({
-      shiftName:[],
-      shiftFromDate:[],
-      shiftToDate:[],
-      shiftFromTime:[],
-      shiftToTime:[],
-      shiftRemark:[]
+      shiftName:[,[Validators.required]],
+      shiftFromDate:[,[Validators.required]],
+      shiftToDate:[,[Validators.required]],
+      shiftFromTime:[,[Validators.required]],
+      shiftToTime:[,[Validators.required]],
+      shiftRemark:[,[Validators.required]]
     });
   }
 
@@ -495,11 +504,11 @@ export class SchoolProfileComponent implements OnInit {
 
   newClass():FormGroup{
     return this.fb.group({
-      className:[],
-      classSection:[],
-      classBoys:[],
-      classGirls:[],
-      classStudent:[],
+      className:[,[Validators.required]],
+      classSection:[,[Validators.required]],
+      classBoys:[,[Validators.required]],
+      classGirls:[,[Validators.required]],
+      classStudent:[,[Validators.required]],
     });
   }
 
@@ -507,7 +516,7 @@ export class SchoolProfileComponent implements OnInit {
     return this.dataForm.get('Information20.schoolClass') as FormArray;
   }
 
-  addClass(){
+  addClass(){   
     this.Schoolclass().push(this.newClass());
   }
 
@@ -523,6 +532,11 @@ export class SchoolProfileComponent implements OnInit {
   previous(){
     this.step -=1;
   }
+
+//handle search page
+  steps(val:any){
+    this.step=val;
+  }
 // form submit method
   submit(data:any){
     
@@ -532,7 +546,7 @@ export class SchoolProfileComponent implements OnInit {
     console.log(this.dataForm.controls[name].value);
     
     if(this.dataForm.controls[name].valid){      
-      this.subService.post(this.dataForm.controls[name].value , '/schoolUpdate').subscribe(arg =>{
+      this.subService.updateSchoolData(this.dataForm.controls[name].value).subscribe(arg =>{
         this.status = arg;
         this.Status();
       },error =>{
@@ -550,7 +564,7 @@ export class SchoolProfileComponent implements OnInit {
   }
 // form submit status from api
   Status(){
-    if (this.status.status_code != 'error'){
+    if (this.status.status != ''){
       Swal.fire({
         title:"",
         text:"details saved successfully",
@@ -573,8 +587,58 @@ export class SchoolProfileComponent implements OnInit {
     }
   }
 
-  steps(val:any){
-    this.step=val;
+  clear(){
+    Swal.fire({
+      title:"Warning",
+      text:"Are you sure to delete all Data?",
+      icon :'warning',
+      confirmButtonColor:'red',
+      showCancelButton:true,
+      cancelButtonColor:'green',
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.dataForm.reset();
+        this.subService.changeAll(this.dataForm.value).subscribe(data=>{
+          Swal.fire('','Data cleared successfully','success')
+        },error=>{
+          Swal.fire({
+            title:'Session ended !',
+            text:"login Again...",
+            icon:'warning',
+            position:'center',
+            confirmButtonColor:'blue',
+          });
+          this.dataForm.markAsUntouched(); 
+          this.submitted = false;
+          // this.route.navigate(['/']);
+        });
+      }
+      else{
+        //do else
+      }
+    });
   }
 
+  submitAll(){
+    if (this.dataForm.invalid){
+      this.submitted = true;
+      alert("fill the missing data");
+    }
+    else {
+      this.subService.changeAll(this.dataForm.value).subscribe(data=>{
+        this.status = data;
+        this.Status()
+      },error=>{
+        Swal.fire({
+          title:'Session ended !',
+          text:"login Again...",
+          icon:'warning',
+          position:'center',
+          confirmButtonColor:'blue',
+        });
+        // this.route.navigate(['/']);
+      });
+    }
+    
+  }
 }

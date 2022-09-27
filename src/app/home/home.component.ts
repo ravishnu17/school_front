@@ -11,47 +11,14 @@ import {BreakpointObserver}from '@angular/cdk/layout'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild(MatSidenav) sidenav!:MatSidenav;
-  data: any;
-  type: any;
-  name : any;
-  page:any = 'Dashboard';
-  constructor(private observer:BreakpointObserver ,private subservice:SubserviceService , private route:Router ,private act :ActivatedRoute) { }
+  name:any;
+  constructor(private subservice:SubserviceService) { }
  
   ngOnInit(): void {
-    this.subservice.get('/get').subscribe(
-      next =>{         
-      this.data = next;
-      this.type = this.data.role ;
-      this.name = this.data.name ;      
-    },
-      error =>{
-      this.route.navigate(['/']);
-    });
+   this.subservice.getUser().subscribe(data=>{
+    this.name = data.name;
     
-    if(localStorage.getItem('token')==null){
-      Swal.fire("Closed","Your Session is ended. Login Again!",'info');
-      this.route.navigate(['']);
-    }
-  }
-  // menu action
-  path(path:any , page:any){
-    if(path ==''){
-      localStorage.clear();
-    }
-    this.page=page;
-    this.route.navigate([path]);
-  }
-  ngAfterViewInit(){
-    this.observer.observe(['(max-width:900px)']).subscribe((res)=>{
-      if(res.matches){
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      }else{
-        this.sidenav.mode ='side';
-        this.sidenav.open();
-      }
-    });
+   });
   }
 
 }

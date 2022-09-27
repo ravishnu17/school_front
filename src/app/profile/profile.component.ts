@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   pwd :any;
   del : any;
   status !:number;
+  fieldType = false;
   constructor(private location:Location, private subService : SubserviceService, private actRoute:ActivatedRoute,private fb:FormBuilder,private route:Router) { }
 
   ngOnInit(): void {
@@ -29,7 +30,7 @@ export class ProfileComponent implements OnInit {
     }
 
 
-    this.subService.get('/profile').subscribe(arg =>{
+    this.subService.userProfile().subscribe(arg =>{
       this.profileForm.patchValue(arg)
 
       if(arg.role == 0){
@@ -63,7 +64,7 @@ export class ProfileComponent implements OnInit {
       
     }
     else{      
-      this.subService.post(this.profileForm.value , '/profileUpdate').subscribe(arg =>{
+      this.subService.changeUserData(this.profileForm.value).subscribe(arg =>{
         
         Swal.fire({
           position:'top',
@@ -93,7 +94,7 @@ export class ProfileComponent implements OnInit {
       if(this.profileForm.controls['passwordForm'].value.oldPwd == this.profileForm.controls['passwordForm'].value.newPwd ){
         this.status =0;
       }else{
-        this.subService.post(this.profileForm.controls['passwordForm'].value , '/password').subscribe(arg=>{         
+        this.subService.changePassword(this.profileForm.controls['passwordForm'].value).subscribe(arg=>{         
           this.pwd = arg;
           this.status = this.pwd.status ; 
         },error =>{
@@ -116,7 +117,7 @@ export class ProfileComponent implements OnInit {
       position:"top",
     }).then((result)=>{
       if(result.isConfirmed){
-        this.subService.remove('/delete').subscribe(arg=>{
+        this.subService.deleteProfile().subscribe(arg=>{
           this.del =arg;
         if(this.del.detail != null){
           Swal.fire('',"Account Deleted successfully !","success");
@@ -127,7 +128,11 @@ export class ProfileComponent implements OnInit {
     });
   }
   previous(){
+    this.fieldType = false;
     this.step-=1;
+  }
+  view(){
+    this.fieldType = !this.fieldType;
   }
   
 }

@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   error : any;
   form!: FormData;
   step=0;
+  submitted = false;
+  fieldType = false;
   constructor(private fb: FormBuilder, private subService: SubserviceService,private route:Router) { 
   }
 
@@ -24,28 +26,40 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
     
     this.loginForm = this.fb.group({
-      username: ['',Validators.required],
-      password: [''],
-      pin:[],
-      pwd:[]
+      login:this.fb.group({
+        username: ['',Validators.required],
+        password: ['',Validators.required]
+      }),
+      forgotPassword:this.fb.group({
+        username: ['',Validators.required],
+        pin:['',[Validators.required]],
+        password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}')]]
+      })
     });
   }
 
   plus()
   {
+    this.fieldType=false;
     this.error = null;
     this.step=1;
   }
 
   minus()
   {
+    this.fieldType=false;
     this.error = null;
     this.step=0;
   }
 
+//password view
+view(){
+  this.fieldType = !this.fieldType;
+}
+
 //get pin method
   check(){    
-    this.subService.post({"username":this.loginForm.controls['username'].value},'/pinGenerate').subscribe(data=>{
+    this.subService.pin({"username":this.loginForm.get('forgotPassword.username')?.value}).subscribe(data=>{
       this.data = data;      
       
       if (this.data[0].pin!=null){
@@ -59,11 +73,12 @@ export class LoginComponent implements OnInit {
 
 //forgot password method
   forgotPwd(){
-    if (this.loginForm.controls['username'].value ==null || this.loginForm.controls['pin'].value==null || this.loginForm.controls['pwd'].value ==null) {
+    if (this.loginForm.controls['forgotPassword'].invalid) {
+      this.submitted = true;
       alert("Field should not be Empty");
     }
     else{
-      this.subService.post(this.loginForm.value,'/forgotPassword').subscribe(data=>{
+      this.subService.forgotPassword(this.loginForm.controls['forgotPassword'].value).subscribe(data=>{
         this.data = data;
         Swal.fire({
           title:'Successfully changed',
@@ -88,21 +103,18 @@ export class LoginComponent implements OnInit {
 //login method
   submit() {
 
-    if (this.loginForm.invalid) {      
+    if (this.loginForm.controls['login'].invalid) {      
       this.error="Enter login credentials";
     }
-    else if(this.loginForm.controls['password'].value == ''){
-      this.error="Enter login credentials";
-    } 
     else {
         // const login = JSON.parse(JSON.stringify(this.loginForm.value))
         // console.log("login data",this.loginForm.value)
 
         this.form = new FormData();
-        this.form.append("username",this.loginForm.controls['username'].value);
-        this.form.append("password",this.loginForm.controls['password'].value);
+        this.form.append("username",this.loginForm.get('login.username')?.value);
+        this.form.append("password",this.loginForm.get('login.password')?.value);
 
-      this.subService.post(this.form , '/login').subscribe( next => {
+      this.subService.login(this.form).subscribe( next => {
         this.data=next;
 
         if(this.data.access_token != null && this.data.role != 2 ){ 
@@ -116,7 +128,7 @@ export class LoginComponent implements OnInit {
             icon:'success',
             timer:1000
           });
-          this.route.navigate(['/main']);
+          this.route.navigate(['/main/home']);
           }
           else if (this.data.role == 2){
             localStorage.setItem('token',this.data.access_token);

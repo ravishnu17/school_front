@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     }
     else{
       
-      this.subService.post(this.registerForm.value ,'/register').subscribe((arg:any) => {
+      this.subService.register(this.registerForm.value).subscribe((arg:any) => {
         this.data=arg;
         
         if(this.data.email == this.registerForm.controls['email'].value){
@@ -51,7 +51,9 @@ export class RegisterComponent implements OnInit {
           this.route.navigateByUrl('');
         }
       },error=>{
-        this.error = error.error.msg;
+        console.log(error);
+        
+        this.error = error.error.detail;
       })
     }
     

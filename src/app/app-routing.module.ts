@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { GeneralInfoComponent } from './general-info/general-info.component';
 import { TestComponent } from './test/test.component';
 import { SchoolProfileComponent } from './school-profile/school-profile.component';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -14,10 +15,11 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:'test',component:TestComponent},
 
-  {path:"main",component:HomeComponent , 
+  {path:"main",component:MainComponent , 
       children:[
+      {path:'home',component:HomeComponent},
       {path:'profile',component:ProfileComponent },
-      {path:'SchoolProfile', component:SchoolProfileComponent}]
+      {path:'schoolProfile', component:SchoolProfileComponent}]
   },
 ];
 

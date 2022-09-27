@@ -24,7 +24,7 @@ export class GeneralInfoComponent implements OnInit {
       this.route.navigate(['']);
     }
 
-    this.service.get('/getUser').subscribe(data=>{
+    this.service.getUsers().subscribe(data=>{
       
       for (let val of data){
         if(val.role ==1){
@@ -56,7 +56,7 @@ export class GeneralInfoComponent implements OnInit {
 
   change(){
     console.log(this.changeForm.value);
-    this.service.post(this.changeForm.value , '/changeRole').subscribe((arg:any) =>{
+    this.service.changeRole(this.changeForm.value).subscribe((arg:any) =>{
       this.data = arg;
       alert(this.data.status);
       location.reload();
@@ -80,7 +80,7 @@ export class GeneralInfoComponent implements OnInit {
       
     }).then((result) =>{
       if(result.isConfirmed){
-        this.service.remove('/deleteID/'+id).subscribe(data=>{
+        this.service.remove(id).subscribe(data=>{
           Swal.fire("Deleted successfully","","success");
           location.reload();
         });
