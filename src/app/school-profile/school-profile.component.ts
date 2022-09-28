@@ -390,23 +390,33 @@ export class SchoolProfileComponent implements OnInit {
       }
       
       this.dataForm.patchValue(arg);
-      
-      
-      this.get=arg.Information19['scholarship'];
-      for (let data of this.get){         
-        this.Scholarship().push(this.loadScholarship(data));
+
+      //set scholarship value
+      if (arg.Information19['scholarship']){
+
+        this.get=arg.Information19['scholarship'];
+        for (let data of this.get){         
+          this.Scholarship().push(this.loadScholarship(data));
+        }
       }
 
-      this.get = arg.Information20['shift'];
-      for(let data of this.get){
-        this.Shift().push(this.loadShift(data));
+      //set shift control value
+      if(arg.Information20['shift']){
+
+        this.get = arg.Information20['shift'];
+        for(let data of this.get){
+          this.Shift().push(this.loadShift(data));
+        }
       }
 
-      this.get = arg.Information20['schoolClass'];
-      for(let data of this.get){
-        this.Schoolclass().push(this.loadClass(data));
-      }
-      
+      //set school class control value
+      if(arg.Information20['schoolClass']){
+
+        this.get = arg.Information20['schoolClass'];
+        for(let data of this.get){
+          this.Schoolclass().push(this.loadClass(data));
+        }
+      }      
       
     },
     error =>{
