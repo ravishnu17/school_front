@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   del : any;
   status !:number;
   fieldType = false;
-  constructor(private location:Location, private subService : SubserviceService, private actRoute:ActivatedRoute,private fb:FormBuilder,private route:Router) { }
+  constructor(private subService : SubserviceService, private actRoute:ActivatedRoute,private fb:FormBuilder,private route:Router) { }
 
   ngOnInit(): void {
     
@@ -71,7 +71,9 @@ export class ProfileComponent implements OnInit {
           text:'Your profile updated successfully',
           icon:'success'
         });
-      },error=>{        
+
+      },error=>{ 
+               
         if(error.error.detail != null){
           Swal.fire("",error.error.detail,"warning");
           this.route.navigate(['/']);
@@ -86,7 +88,7 @@ export class ProfileComponent implements OnInit {
   change(){
     this.step=1;
   }
-  update(){
+  updatePassword(){
     if(this.profileForm.invalid){
       alert("FIll the missing");
     }
@@ -104,7 +106,7 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
-  remove(){
+  clearData(){
     Swal.fire({
       title:"Please confirm",
       text:"Are you sure to delete your Account ?",

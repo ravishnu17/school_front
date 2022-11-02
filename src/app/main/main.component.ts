@@ -55,6 +55,7 @@ export class MainComponent implements OnInit {
     this.page=page;
     this.route.navigate([path]);
   }
+  
   ngAfterViewInit(){
     this.observer.observe(['(max-width:900px)']).subscribe((res)=>{
       if(res.matches){
@@ -62,7 +63,11 @@ export class MainComponent implements OnInit {
         this.sidenav.close();
       }else{
         this.sidenav.mode ='side';
-        this.sidenav.open();
+        if(this.sidenav.opened){
+          //do nothing;
+        }else{
+          this.sidenav.open()
+        }
       }
     });
   }

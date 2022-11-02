@@ -19,7 +19,7 @@ export class SchoolProfileComponent implements OnInit {
   step=1;
   count=1;
   page = new Array(20);
-  dataForm! : FormGroup;
+  dataForm! : FormGroup;  
   
   selected:any=[];
   medium:any=[];
@@ -547,6 +547,7 @@ export class SchoolProfileComponent implements OnInit {
   steps(val:any){
     this.step=val;
   }
+
 // form submit method
   submit(data:any){
     
@@ -651,4 +652,6 @@ export class SchoolProfileComponent implements OnInit {
     }
     
   }
+
+
 }
